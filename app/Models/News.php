@@ -1,0 +1,21 @@
+<?php
+  
+namespace App\Models;
+  
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+  
+class News extends Model{
+    
+    use HasFactory;
+  
+    /**
+     * Write code on Method
+     *
+     * @return response()
+     */
+    protected $fillable = ['image', 'title','content'];
+
+    protected $table = 'news';
+    
+}

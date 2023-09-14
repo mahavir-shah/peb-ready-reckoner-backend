@@ -12,6 +12,7 @@ use App\Handlers\Admin\AuthHandler;
 use Firebase\JWT\JWT;
 use JWTAuth;
 use App\Models\UserOtp;
+use App\Models\CompanyDetails;
 use Tymon\JWTAuth\Exceptions\JWTException;
 use Craftsys\Msg91\Facade\Msg91;
 use Illuminate\Http\JsonResponse;
@@ -22,7 +23,38 @@ use Auth;
 class OtpController extends Controller{
 
     public function __construct() {
-        $this->middleware('auth:api', ['except' => ['SendOtp','login']]);
+        $this->middleware('auth:api', ['except' => ['SendOtp','login','register']]);
+    }
+
+    public function register(Request $request){
+        $validator = Validator::make($request->all(), [
+            'name' => 'required',
+            'mobile_no' => 'required|unique:users|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
+            'email' => 'required|email|unique:users',
+            'company_name' => 'required',
+            'designation' => 'required',
+        ]);
+
+        //Send failed response if request is not valid
+        if ($validator->fails()) {
+            return response()->json(['error' => $validator->messages()], 400);
+        }
+
+       User::create([
+            'name' => $request->name,
+            'mobile_no' => $request->mobile_no,
+            'email' => $request->email
+       ]);
+
+       CompanyDetails::create([
+            'company_name' => $request->company_name,
+            'designation' => $request->designation
+        ]);
+
+        return response()->json([
+            'success' => true,
+            'message' => 'User Registerd Sucessfully'
+        ], Response::HTTP_OK);
     }
 
     public function SendOtp(Request $request){
@@ -35,22 +67,20 @@ class OtpController extends Controller{
             return response()->json(['error' => $validator->messages()], 400);
         }
 
-        $user = User::select('id')->where('mobile_no', $request->mobile_no)->get()->first();
-        if($user != null){
-            $user_id = $user->id;
-        }
-        
+        $user = User::where('mobile_no', $request->mobile_no)->first();
+
         if($user == null){
-            $user_id =  User::create([
-                'mobile_no' => $request->mobile_no
-            ])->id;
+             return response()->json([
+                'success' => false,
+                'message' => 'Mobile no is not registered',
+            ], 400);
         }
   
-        UserOtp::where('user_id', $user)->delete();
+        UserOtp::where('user_id', $user->id)->delete();
         //$otp = rand(123456, 999999);
         $otp = 123456;
         $otp_data = UserOtp::create([
-            'user_id' => $user_id,
+            'user_id' => $user->id,
             'otp' => $otp
         ]);
 

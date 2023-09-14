@@ -36,9 +36,12 @@ class OtpController extends Controller{
         }
 
         $user = User::select('id')->where('mobile_no', $request->mobile_no)->get()->first();
-
+        if($user != null){
+            $user_id = $user->id;
+        }
+        
         if($user == null){
-            $user =  User::create([
+            $user_id =  User::create([
                 'mobile_no' => $request->mobile_no
             ])->id;
         }
@@ -47,7 +50,7 @@ class OtpController extends Controller{
         //$otp = rand(123456, 999999);
         $otp = 123456;
         $otp_data = UserOtp::create([
-            'user_id' => $user,
+            'user_id' => $user_id,
             'otp' => $otp
         ]);
 

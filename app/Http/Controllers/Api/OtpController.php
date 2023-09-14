@@ -35,20 +35,19 @@ class OtpController extends Controller{
             return response()->json(['error' => $validator->messages()], 400);
         }
 
-        $user = User::where('mobile_no', $request->mobile_no)->first();
+        $user = User::select('id')->where('mobile_no', $request->mobile_no)->get()->first();
 
         if($user == null){
-             return response()->json([
-                'success' => false,
-                'message' => 'Mobile no is not registered',
-            ], 400);
+            $user =  User::create([
+                'mobile_no' => $request->mobile_no
+            ])->id;
         }
   
-        UserOtp::where('user_id', $user->id)->delete();
+        UserOtp::where('user_id', $user)->delete();
         //$otp = rand(123456, 999999);
         $otp = 123456;
         $otp_data = UserOtp::create([
-            'user_id' => $user->id,
+            'user_id' => $user,
             'otp' => $otp
         ]);
 

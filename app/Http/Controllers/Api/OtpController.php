@@ -40,16 +40,41 @@ class OtpController extends Controller{
             return response()->json(['error' => $validator->messages()], 400);
         }
 
-       User::create([
+       $user = User::create([
             'name' => $request->name,
             'mobile_no' => $request->mobile_no,
             'email' => $request->email
-       ]);
+       ])->id;
 
        CompanyDetails::create([
             'company_name' => $request->company_name,
             'designation' => $request->designation
         ]);
+
+        //UserOtp::where('user_id', $user->id)->delete();
+        //$otp = rand(1234, 9999);
+        $otp = 1234;
+        $otp_data = UserOtp::create([
+            'user_id' => $user,
+            'otp' => $otp
+        ]);
+
+        $curl = curl_init();
+
+        //     curl_setopt_array($curl, array(
+        //     CURLOPT_URL => 'https://api.authkey.io/request?authkey=c9f946d397cec9f1&mobile='.$user->mobile_no.'&country_code=91&sid=9561&company=IOBJE&otp='.$otp,
+        //     CURLOPT_RETURNTRANSFER => true,
+        //     CURLOPT_ENCODING => '',
+        //     CURLOPT_MAXREDIRS => 10,
+        //     CURLOPT_TIMEOUT => 0,
+        //     CURLOPT_FOLLOWLOCATION => true,
+        //     CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+        //     CURLOPT_CUSTOMREQUEST => 'GET',
+        //     ));
+
+        //     $response = curl_exec($curl);
+
+        //     curl_close($curl);
 
         return response()->json([
             'success' => true,
@@ -77,8 +102,8 @@ class OtpController extends Controller{
         }
   
         UserOtp::where('user_id', $user->id)->delete();
-        //$otp = rand(123456, 999999);
-        $otp = 123456;
+        //$otp = rand(1234, 9999);
+        $otp = 1234;
         $otp_data = UserOtp::create([
             'user_id' => $user->id,
             'otp' => $otp

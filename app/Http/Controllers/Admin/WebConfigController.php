@@ -29,7 +29,7 @@ class WebConfigController extends Controller
                 $sub_array[] = '<img src="'.asset('upload/logo/'.$row->logo).'" width="50px" height="50px">';
                 $sub_array[] = $row->welcome_content;
                 $sub_array[] = '
-                <a href="'.route('admin.webConfigEdit',$row->id).'" class="mr-2"><i class="fa fa-edit-icon"></i></a>';
+                <a href="'.route('admin.webConfigEdit',$row->id).'" class="mr-2"><i class="fa fa-edit"></i></a>';
                 $data[] = $sub_array;
             }
 

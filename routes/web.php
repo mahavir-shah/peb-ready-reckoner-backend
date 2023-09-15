@@ -5,6 +5,8 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Admin\DeshboardController;
 use App\Http\Controllers\Admin\NewsController;
 use App\Http\Controllers\Admin\WebConfigController;
+use App\Http\Controllers\Admin\CompanyController;
+use App\Http\Controllers\Admin\DesignationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,5 +46,19 @@ Route::group(['middleware' =>['auth']], function () {
     Route::post('/webconfig-data', [WebConfigController::class, 'newsData'])->name('admin.webConfigData');
     Route::post('/webconfig-create', [WebConfigController::class, 'create'])->name('admin.webConfigcreate');
     Route::get('/web-config/{id}', [WebConfigController::class, 'edit'])->name('admin.webConfigEdit');
+
+    //Company Name
+    Route::get('/company', [CompanyController::class, 'index'])->name('admin.Company');
+    Route::post('/company-data', [CompanyController::class, 'companyData'])->name('admin.companyData');
+    Route::post('/company-add', [CompanyController::class, 'create'])->name('admin.companyAdd');
+    Route::post('/company-delete', [CompanyController::class, 'delete'])->name('admin.companyDelete');
+    Route::post('/company-update', [CompanyController::class, 'update'])->name('admin.companyUpdate');
+
+    //Designation
+    Route::get('/designation', [DesignationController::class, 'index'])->name('admin.Designation');
+    Route::post('/designation-data', [DesignationController::class, 'designationData'])->name('admin.designationData');
+    Route::post('/designation-add', [DesignationController::class, 'create'])->name('admin.designationAdd');
+    Route::post('/designation-delete', [DesignationController::class, 'delete'])->name('admin.designationDelete');
+    Route::post('/designation-update', [DesignationController::class, 'update'])->name('admin.designationUpdate');
 
 });

@@ -51,7 +51,7 @@ class NewsController extends Controller
                 $sub_array[] = '<img src="'.asset('upload/news/'.$row->image).'" width="50px" height="50px">';
                 $sub_array[] = date('d-m-Y', strtotime($row->created_at));
                 $sub_array[] = '
-                <a href="'.route('admin.newsEdit',$row->id).'" class="mr-2"><i class="fa fa-edit-icon"></i></a>
+                <a href="'.route('admin.newsEdit',$row->id).'" class="mr-2"><i class="fa fa-edit"></i></a>
                 <a href="javascript:void(0)" class="user-delete user-delete-icon-'.$row->id.'"  rel="'.$row->id.'"><i class="fa fa-trash"></i></a>';
                 $data[] = $sub_array;
             }

@@ -12,6 +12,8 @@ use App\Handlers\Admin\AuthHandler;
 use Firebase\JWT\JWT;
 use JWTAuth;
 use App\Models\UserOtp;
+use App\Models\CompanyName;
+use App\Models\Designation;
 use App\Models\CompanyDetails;
 use Tymon\JWTAuth\Exceptions\JWTException;
 use Craftsys\Msg91\Facade\Msg91;
@@ -23,7 +25,7 @@ use Auth;
 class OtpController extends Controller{
 
     public function __construct() {
-        $this->middleware('auth:api', ['except' => ['SendOtp','login','register']]);
+        $this->middleware('auth:api', ['except' => ['SendOtp','login','register','getCompanyName','getdesignation']]);
     }
 
     public function register(Request $request){
@@ -33,6 +35,8 @@ class OtpController extends Controller{
             'email' => 'required|email|unique:users',
             'company_name' => 'required',
             'designation' => 'required',
+            'company_id' => 'required',
+            'designation_id' => 'required',
         ]);
 
         //Send failed response if request is not valid
@@ -46,10 +50,26 @@ class OtpController extends Controller{
             'email' => $request->email
        ])->id;
 
+       if($request->company_id == 0){
+            $company_id = CompanyName::create([
+                'company_title' => $request->company_name 
+            ])->id;
+       }else{
+        $company_id = $request->company_id;
+       }
+
+       if($request->designation_id == 0){
+            $designation_id = Designation::create([
+                'designation_title' => $request->designation 
+            ])->id;
+        }else{
+            $designation_id = $request->designation_id;
+        }
+
        CompanyDetails::create([
             'user_id' => $user,
-            'company_name' => $request->company_name,
-            'designation' => $request->designation
+            'company_name' => $company_id,
+            'designation' => $designation_id
         ]);
 
         //UserOtp::where('user_id', $user->id)->delete();
@@ -179,6 +199,28 @@ class OtpController extends Controller{
         auth()->logout();
 
         return response()->json(['message' => 'User successfully logged out.']);
+    }
+
+    public function getCompanyName(Request $request){
+
+        $company = CompanyName::select('id','company_title')->where('company_title', 'like', '%' . $request->key . '%')->get()->first();
+
+        return response()->json([
+            'success' => true,
+            'data' => $company
+        ], Response::HTTP_OK);
+
+    }
+
+    public function getdesignation(Request $request){
+
+        $designation = Designation::select('id','designation_title')->where('designation_title', 'like', '%' . $request->key . '%')->get()->first();
+
+        return response()->json([
+            'success' => true,
+            'data' => $designation
+        ], Response::HTTP_OK);
+
     }
 
 }

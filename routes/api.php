@@ -24,6 +24,8 @@ use App\Http\Controllers\Api\NewsController;
 Route::post('send-otp', [OtpController::class, 'SendOtp']);
 Route::post('login', [OtpController::class, 'login']);
 Route::post('register', [OtpController::class, 'register']);
+Route::post('get-company-name', [OtpController::class, 'getCompanyName']);
+Route::post('get-designatione', [OtpController::class, 'getdesignation']);
 
 Route::group(['middleware' => ['jwt.verify']], function() {
 

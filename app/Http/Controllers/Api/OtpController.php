@@ -47,6 +47,7 @@ class OtpController extends Controller{
        ])->id;
 
        CompanyDetails::create([
+            'user_id' => $user,
             'company_name' => $request->company_name,
             'designation' => $request->designation
         ]);
@@ -78,7 +79,8 @@ class OtpController extends Controller{
 
         return response()->json([
             'success' => true,
-            'message' => 'User Registerd Successfully'
+            'message' => 'User Registerd Successfully',
+            'mobile_no' => $request->mobile_no
         ], Response::HTTP_OK);
     }
 

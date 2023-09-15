@@ -78,7 +78,7 @@ class OtpController extends Controller{
 
         return response()->json([
             'success' => true,
-            'message' => 'User Registerd Sucessfully'
+            'message' => 'User Registerd Successfully'
         ], Response::HTTP_OK);
     }
 

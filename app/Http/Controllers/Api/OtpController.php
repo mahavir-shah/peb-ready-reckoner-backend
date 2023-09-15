@@ -203,7 +203,7 @@ class OtpController extends Controller{
 
     public function getCompanyName(Request $request){
 
-        $company = CompanyName::select('id','company_title')->where('company_title', 'like', '%' . $request->key . '%')->get()->first();
+        $company = CompanyName::select('id','company_title')->where('company_title', 'like', '%' . $request->key . '%')->get();
 
         return response()->json([
             'success' => true,
@@ -214,7 +214,7 @@ class OtpController extends Controller{
 
     public function getdesignation(Request $request){
 
-        $designation = Designation::select('id','designation_title')->where('designation_title', 'like', '%' . $request->key . '%')->get()->first();
+        $designation = Designation::select('id','designation_title')->where('designation_title', 'like', '%' . $request->key . '%')->get();
 
         return response()->json([
             'success' => true,

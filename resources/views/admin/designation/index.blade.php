@@ -25,7 +25,7 @@
             <h4 class="mt-4"><i class="fa fa-hmd-users-icon"></i> <span class="title-text"><b>Designation </b></span><span id="total-title-count" class="title-count"> <!-- (</span><span id="title-count" class="title-count"></span><span class="title-count"> total)  --></span></h4>
             <button class="add-button admin-btn btn btn-secondary" style="width: 185px; height: 40px; font-size: 16px;">Create Designation</button>
         </div>
-		<div class="card mt-4">
+		<div class="card mt-4 mb-4">
 			<div class="card-body">
 				<div class="table-responsive">
 					<div class="-page-row filter-datatable">
@@ -47,6 +47,34 @@
 				</div>
 			</div>
 		</div>
+
+		<div class="mb-3">
+			<button class="arcade-button admin-btn btn btn-secondary" style="width: 175px; height: 40px; font-size: 16px;">Arcade Value</button>
+		</div>
+
+		<div class="card mt-4 mb-4 d-none arcade-section">
+			<div class="card-body">
+				<div class="table-responsive">
+					<div class="-page-row filter-datatable">
+						<div class="col_filed">
+							<select name="column_name" id="column_name1" class="form-control" multiple>
+								<option value="0" selected>Title</option>
+								<option value="1" selected>Actions</option>
+							</select>
+						</div>
+					</div>
+					<table class="customtable users table table-bordered table-striped sample_data1 table-responsive-lg">
+						<thead>
+							<tr>
+								<th class="mwidth100">Title</th>
+								<th style="min-width: 132px;">Actions</th>
+							</tr>
+						</thead>
+					</table>
+				</div>
+			</div>
+		</div>
+
 	</div>
 </div>
 <div class="modal fade update-credentials" id="designation" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -168,6 +196,7 @@ $(document).ready(function(){
               success: function(data) {
                 $this.closest('tr').remove();
 				toastr.success('Designation Deleted Successfully');
+				dataTable1.draw();
               }
           });
 	});
@@ -211,6 +240,52 @@ $(document).ready(function(){
 				toastr.success('Designation Updated Successfully');
           	}
 	    });
+	});
+
+	var dataTable1 = $('.sample_data1').DataTable({
+		"serverSide" : true,
+		"language": {
+            searchPlaceholder: "Search",
+            "emptyTable": "No data available in the table",
+        },
+		"ordering": false,
+		"order": [],
+		"ajax" : {
+            type:"POST",
+			url:'{{route("admin.designationArcadeData")}}', 
+            headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+        }
+	});
+
+	$('#column_name1').selectpicker({
+		selectedTextFormat: 'static',
+		title: 'Columns'
+	});
+
+	$.fn.DataTable.ext.pager.numbers_length = 5;
+
+	$(document).on('click', '.designation-arcade', function() {
+		$this=$(this);
+		$.ajax({
+              type: 'POST',
+              url: "{{ route('admin.designationRestore') }}",
+              data: {
+                  'id': $(this).attr('rel'),
+                  "_token": "{{ csrf_token() }}"
+              },
+              dataType: 'json',
+              success: function(data) {
+                $this.closest('tr').remove();
+				toastr.success('Designation Restored Successfully');
+				dataTable.draw();
+              }
+          });
+	});
+
+	$(document).on('click', '.arcade-button', function() {
+		$('.arcade-section').toggleClass('d-none');
 	});
 	
 });

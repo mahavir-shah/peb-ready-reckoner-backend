@@ -53,6 +53,8 @@ Route::group(['middleware' =>['auth']], function () {
     Route::post('/company-add', [CompanyController::class, 'create'])->name('admin.companyAdd');
     Route::post('/company-delete', [CompanyController::class, 'delete'])->name('admin.companyDelete');
     Route::post('/company-update', [CompanyController::class, 'update'])->name('admin.companyUpdate');
+    Route::post('/company-arcade-data', [CompanyController::class, 'companyArcadeData'])->name('admin.companyArcadeData');
+    Route::post('/company-restore', [CompanyController::class, 'restore'])->name('admin.companyRestore');
 
     //Designation
     Route::get('/designation', [DesignationController::class, 'index'])->name('admin.Designation');
@@ -60,5 +62,7 @@ Route::group(['middleware' =>['auth']], function () {
     Route::post('/designation-add', [DesignationController::class, 'create'])->name('admin.designationAdd');
     Route::post('/designation-delete', [DesignationController::class, 'delete'])->name('admin.designationDelete');
     Route::post('/designation-update', [DesignationController::class, 'update'])->name('admin.designationUpdate');
+    Route::post('/designation-arcade-data', [DesignationController::class, 'designationArcadeData'])->name('admin.designationArcadeData');
+    Route::post('/designation-restore', [DesignationController::class, 'restore'])->name('admin.designationRestore');
 
 });

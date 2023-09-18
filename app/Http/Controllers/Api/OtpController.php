@@ -20,6 +20,8 @@ use Craftsys\Msg91\Facade\Msg91;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\WelcomeMail;
 use Auth;
 
 class OtpController extends Controller{
@@ -96,6 +98,12 @@ class OtpController extends Controller{
         //     $response = curl_exec($curl);
 
         //     curl_close($curl);
+
+        // $mailData = [
+        //     'name' => $request->name
+        // ];
+
+        // Mail::to($request->email)->send(new WelcomeMail($mailData));
 
         return response()->json([
             'success' => true,

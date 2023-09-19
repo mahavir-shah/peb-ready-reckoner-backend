@@ -209,25 +209,19 @@ class OtpController extends Controller{
         return response()->json(['message' => 'User successfully logged out.']);
     }
 
-    public function getCompanyName(Request $request){
+    public function getCompanyName(){
 
-        $company = CompanyName::select('id','company_title')->where('company_title', 'like', '%' . $request->key . '%')->get();
+        $company = CompanyName::select('id','company_title as name')->get();
 
-        return response()->json([
-            'success' => true,
-            'data' => $company
-        ], Response::HTTP_OK);
+        return response()->json($company, Response::HTTP_OK);
 
     }
 
-    public function getdesignation(Request $request){
+    public function getdesignation(){
 
-        $designation = Designation::select('id','designation_title')->where('designation_title', 'like', '%' . $request->key . '%')->get();
+        $designation = Designation::select('id','designation_title as name')->get();
 
-        return response()->json([
-            'success' => true,
-            'data' => $designation
-        ], Response::HTTP_OK);
+        return response()->json($designation, Response::HTTP_OK);
 
     }
 

@@ -161,7 +161,7 @@ class OtpController extends Controller{
         return response()->json([
             'success' => true,
             'message' => 'Otp Send successfully',
-            //'data' => $otp_data
+            'mobile_no' => $request->mobile_no
         ], Response::HTTP_OK);
     }
 

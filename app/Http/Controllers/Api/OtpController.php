@@ -85,8 +85,8 @@ class OtpController extends Controller{
         ]);
 
         //UserOtp::where('user_id', $user->id)->delete();
-        //$otp = rand(1234, 9999);
-        $otp = 1234;
+        //$otp = rand(123456, 999999);
+        $otp = 123456;
         $otp_data = UserOtp::create([
             'user_id' => $user,
             'otp' => $otp
@@ -142,8 +142,8 @@ class OtpController extends Controller{
         }
   
         UserOtp::where('user_id', $user->id)->delete();
-        //$otp = rand(1234, 9999);
-        $otp = 1234;
+        //$otp = rand(123456, 999999);
+        $otp = 123456;
         $otp_data = UserOtp::create([
             'user_id' => $user->id,
             'otp' => $otp

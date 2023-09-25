@@ -34,6 +34,8 @@ Route::group(['middleware' => ['jwt.verify']], function() {
 
     //User
     Route::post('update-profile', [UserController::class, 'updateProfile']);
+    Route::get('get-user-rate-material', [UserController::class, 'getUserRateMaterial']);
+    Route::post('user-rate-material', [UserController::class, 'userRateMaterial']);
 
     //News
     Route::get('get-news', [NewsController::class, 'getNews']);

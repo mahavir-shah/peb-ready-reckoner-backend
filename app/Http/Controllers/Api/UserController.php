@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 use App\Models\User;
+use App\Models\UserRateMaterials;
 use App\Handlers\Admin\AuthHandler;
 use Firebase\JWT\JWT;
 use JWTAuth;
@@ -59,6 +60,37 @@ class UserController extends Controller{
             'message' => 'Profile Updated Sucessfully',
             'user_data' => $updated_data
         ], Response::HTTP_OK);
+    }
+
+    public function userRateMaterial(Request $request){
+       $user =  UserRateMaterials::updateOrCreate(
+        ['user_id' => $request->user_id],
+        [
+            'user_id' => $request->user_id,
+            'main_frame_steel' => $request->main_frame_steel,
+            'cold_form_purlin' => $request->cold_form_purlin,
+            'side_wall_girt' => $request->side_wall_girt,
+            'gable_end_girt' => $request->gable_end_girt,
+            'roofing_sheet' => $request->roofing_sheet,
+            'side_cladding_sheet' => $request->side_cladding_sheet,
+            'sag_rod' => $request->sag_rod,
+            'cold_form_stay_brace' => $request->cold_form_stay_brace,
+            'anchor_bolt' => $request->anchor_bolt,
+            'cleat' => $request->cleat,
+            'x_bracing' => $request->x_bracing,
+            'finishing' => $request->finishing,
+            'tie_beam' => $request->tie_beam,
+        ]);
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Data Updated Sucessfully'
+        ], Response::HTTP_OK);
+    } 
+
+    public function getUserRateMaterial(){
+        $data =  UserRateMaterials::select('main_frame_steel','cold_form_purlin','side_wall_girt','gable_end_girt','roofing_sheet', 'side_cladding_sheet','sag_rod','cold_form_stay_brace','anchor_bolt','cleat','x_bracing','finishing','tie_beam')->where('user_id',Auth::id())->get();
+        return response()->json($data, Response::HTTP_OK);
     }
 
 }

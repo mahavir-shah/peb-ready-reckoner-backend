@@ -14,7 +14,7 @@ class ProjectEstimantion extends Model{
      *
      * @return response()
      */
-    protected $fillable = ['user_id', 'project_name', 'project_location', 'code_of_design', 'type_of_frame', 'wind_speed', 'span', 'width', 'height	', 'length_of_building'];
+    protected $fillable = ['user_id', 'project_name', 'project_location', 'code_of_design', 'type_of_frame', 'wind_speed', 'span', 'width', 'height', 'length_of_building'];
 
     protected $table = 'project_estimantion';
     

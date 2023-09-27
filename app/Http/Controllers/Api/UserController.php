@@ -117,7 +117,7 @@ class UserController extends Controller{
             'description' => $request->description,
         ];
         if ($request->company_logo) {
-            $image_data = CompanyDetails::find(Auth::id());
+            $image_data = CompanyDetails::select('company_logo')->where('user_id',Auth::id())->first();
             if(isset($image_data->company_logo)){
                 $company_logo = public_path('upload/user_company_logo/'.$image_data->company_logo);
                 if (File::exists($company_logo)) { // unlink or remove previous image from folder
@@ -145,10 +145,10 @@ class UserController extends Controller{
        $user['company_name'] = $company_id;
 
        if($request->designation_id == 0){
-        $designation_data = Designation::where('designation_title',$request->designation)->first();
+        $designation_data = Designation::where('designation_title',$request->designation_title)->first();
             if($designation_data->count() == 0){
                 $designation_id = Designation::create([
-                    'designation_title' => $request->designation 
+                    'designation_title' => $request->designation_title 
                 ])->id;
             }else{
                 $designation_id = $designation_data->id; 

@@ -6,6 +6,9 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 use App\Models\User;
+use App\Models\CompanyDetails;
+use App\Models\CompanyName;
+use App\Models\Designation;
 use App\Models\UserRateMaterials;
 use App\Handlers\Admin\AuthHandler;
 use Firebase\JWT\JWT;
@@ -19,17 +22,8 @@ class UserController extends Controller{
 
     public function updateProfile(Request $request){
 
-        $validator = Validator::make($request->all(), [
-            'mobile_no' => 'required',
-        ]);
-
-        if($validator->fails()) {
-            return response()->json($validator->errors(), 400);
-        }
-
         $user = [
             'name' => $request->name,
-            'mobile_no' => $request->mobile_no,
             'email' => $request->email
         ];
         if ($request->profile_img) {
@@ -91,6 +85,85 @@ class UserController extends Controller{
     public function getUserRateMaterial(){
         $data =  UserRateMaterials::select('main_frame_steel','cold_form_purlin','side_wall_girt','gable_end_girt','roofing_sheet', 'side_cladding_sheet','sag_rod','cold_form_stay_brace','anchor_bolt','cleat','x_bracing','finishing','tie_beam')->where('user_id',Auth::id())->get();
         return response()->json($data, Response::HTTP_OK);
+    }
+
+    public function getProfile(){
+        $data = User::select('users.name','users.mobile_no','users.email','users.profile_img','company_name.id as company_id','company_name.company_title','designation.id as designation_id','designation.designation_title','company_details.description','company_details.ragistration_office','company_details.gst_number')->leftjoin('company_details','company_details.user_id','=','users.id')->leftjoin('company_name','company_name.id','=','company_details.company_name')->leftjoin('designation','designation.id','=','company_details.designation')->where('users.id',Auth::id())->first();
+
+        if($data->profile_img != null){
+            $data['profile_img'] = env('APP_URL').'/upload/profile_img/'.$data->profile_img;
+        }else{
+            $data['profile_img'] = env('APP_URL').'/images/dummy_profile.jpg';
+        }
+
+        return response()->json($data, Response::HTTP_OK);
+    }
+
+    public function updateCompanyDetails(Request $request){
+
+        $validator = Validator::make($request->all(), [
+            'company_id' => 'required',
+            'designation_id' => 'required',
+        ]);
+
+        //Send failed response if request is not valid
+        if ($validator->fails()) {
+            return response()->json(['error' => $validator->messages()], 400);
+        }
+
+        $user = [
+            'ragistration_office' => $request->ragistration_office,
+            'gst_number' => $request->gst_number,
+            'description' => $request->description,
+        ];
+        if ($request->company_logo) {
+            $image_data = CompanyDetails::find(Auth::id());
+            if(isset($image_data->company_logo)){
+                $company_logo = public_path('upload/user_company_logo/'.$image_data->company_logo);
+                if (File::exists($company_logo)) { // unlink or remove previous image from folder
+                    unlink(public_path('upload/user_company_logo/'.$image_data->company_logo));
+                }
+            }
+            $company_logo = time().'.'.$request->company_logo->getClientOriginalExtension();
+            $request->company_logo->move(public_path('upload/user_company_logo/'), $company_logo);
+
+            $user['company_logo'] =  $company_logo;
+        }
+
+        if($request->company_id == 0){
+            $company_data = CompanyName::where('company_title',$request->company_name)->first();
+            if($company_data->count() == 0){
+                $company_id = CompanyName::create([
+                    'company_title' => $request->company_name 
+                ])->id;
+            }else{
+                $company_id = $company_data->id; 
+            }
+       }else{
+        $company_id = $request->company_id;
+       }
+       $user['company_name'] = $company_id;
+
+       if($request->designation_id == 0){
+        $designation_data = Designation::where('designation_title',$request->designation)->first();
+            if($designation_data->count() == 0){
+                $designation_id = Designation::create([
+                    'designation_title' => $request->designation 
+                ])->id;
+            }else{
+                $designation_id = $designation_data->id; 
+            }
+        }else{
+            $designation_id = $request->designation_id;
+        }
+        $user['designation'] = $designation_id;
+
+        CompanyDetails::where('user_id',Auth::id())->update($user);
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Profile Updated Sucessfully',
+        ], Response::HTTP_OK);
     }
 
 }

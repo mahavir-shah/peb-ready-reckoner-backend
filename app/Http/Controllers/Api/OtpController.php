@@ -53,26 +53,26 @@ class OtpController extends Controller{
        ])->id;
 
        if($request->company_id == 0){
-            $company_data = CompanyName::where('company_title',$request->company_name)->first();
-            if($company_data->count() == 0){
+            $company_data = CompanyName::where('company_title',$request->company_name)->get()->first();
+            if(isset($company_data)){
+                $company_id = $company_data->id; 
+            }else{
                 $company_id = CompanyName::create([
                     'company_title' => $request->company_name 
                 ])->id;
-            }else{
-                $company_id = $company_data->id; 
             }
        }else{
         $company_id = $request->company_id;
        }
 
        if($request->designation_id == 0){
-        $designation_data = Designation::where('designation_title',$request->designation)->first();
-            if($designation_data->count() == 0){
+        $designation_data = Designation::where('designation_title',$request->designation)->get()->first();
+            if(isset($designation_data)){
+                $designation_id = $designation_data->id; 
+            }else{
                 $designation_id = Designation::create([
                     'designation_title' => $request->designation 
                 ])->id;
-            }else{
-                $designation_id = $designation_data->id; 
             }
         }else{
             $designation_id = $request->designation_id;

@@ -117,7 +117,7 @@ class UserController extends Controller{
             'description' => $request->description,
         ];
         if ($request->company_logo) {
-            $image_data = CompanyDetails::select('company_logo')->where('user_id',Auth::id())->first();
+            $image_data = CompanyDetails::select('company_logo')->where('user_id',Auth::id())->get()->first();
             if(isset($image_data->company_logo)){
                 $company_logo = public_path('upload/user_company_logo/'.$image_data->company_logo);
                 if (File::exists($company_logo)) { // unlink or remove previous image from folder
@@ -131,13 +131,14 @@ class UserController extends Controller{
         }
 
         if($request->company_id == 0){
-            $company_data = CompanyName::where('company_title',$request->company_name)->first();
-            if($company_data->count() == 0){
+            $company_data = CompanyName::where('company_title',$request->company_name)->get()->first();
+            //echo '<pre>'; print_r($company_data); die();
+            if(isset($company_data)){
+                $company_id = $company_data->id; 
+            }else{
                 $company_id = CompanyName::create([
                     'company_title' => $request->company_name 
                 ])->id;
-            }else{
-                $company_id = $company_data->id; 
             }
        }else{
         $company_id = $request->company_id;
@@ -145,13 +146,13 @@ class UserController extends Controller{
        $user['company_name'] = $company_id;
 
        if($request->designation_id == 0){
-        $designation_data = Designation::where('designation_title',$request->designation_title)->first();
-            if($designation_data->count() == 0){
+        $designation_data = Designation::where('designation_title',$request->designation_title)->get()->first();
+            if(isset($designation_data)){
+                $designation_id = $designation_data->id; 
+            }else{
                 $designation_id = Designation::create([
                     'designation_title' => $request->designation_title 
                 ])->id;
-            }else{
-                $designation_id = $designation_data->id; 
             }
         }else{
             $designation_id = $request->designation_id;

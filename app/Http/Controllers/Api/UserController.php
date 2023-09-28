@@ -88,12 +88,18 @@ class UserController extends Controller{
     }
 
     public function getProfile(){
-        $data = User::select('users.name','users.mobile_no','users.email','users.profile_img','company_name.id as company_id','company_name.company_title','designation.id as designation_id','designation.designation_title','company_details.description','company_details.ragistration_office','company_details.gst_number')->leftjoin('company_details','company_details.user_id','=','users.id')->leftjoin('company_name','company_name.id','=','company_details.company_name')->leftjoin('designation','designation.id','=','company_details.designation')->where('users.id',Auth::id())->first();
+        $data = User::select('users.name','users.mobile_no','users.email','users.profile_img','company_name.id as company_id','company_name.company_title','designation.id as designation_id','designation.designation_title','company_details.description','company_details.company_logo','company_details.ragistration_office','company_details.gst_number')->leftjoin('company_details','company_details.user_id','=','users.id')->leftjoin('company_name','company_name.id','=','company_details.company_name')->leftjoin('designation','designation.id','=','company_details.designation')->where('users.id',Auth::id())->first();
 
         if($data->profile_img != null){
             $data['profile_img'] = env('APP_URL').'/upload/profile_img/'.$data->profile_img;
         }else{
             $data['profile_img'] = env('APP_URL').'/images/dummy_profile.jpg';
+        }
+
+        if($data->company_logo != null){
+            $data['company_logo'] = env('APP_URL').'/upload/user_company_logo/'.$data->company_logo;
+        }else{
+            $data['company_logo'] = env('APP_URL').'/images/dummy_profile.jpg';
         }
 
         return response()->json($data, Response::HTTP_OK);

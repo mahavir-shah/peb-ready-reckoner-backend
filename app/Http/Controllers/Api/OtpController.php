@@ -204,6 +204,12 @@ class OtpController extends Controller{
 		
         $user_data = User::where('id', JWTAuth::setToken($token)->toUser()->id)->first();
 
+        if($user_data->profile_img != null){
+            $user_data['profile_img'] = env('APP_URL').'/upload/profile_img/'.$user_data->profile_img;
+        }else{
+            $user_data['profile_img'] = env('APP_URL').'/images/dummy_profile.jpg';
+        }
+
 		return response()->json([
             'success' => true,
             'token_type' => 'bearer',

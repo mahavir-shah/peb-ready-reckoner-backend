@@ -167,9 +167,12 @@ class UserController extends Controller{
 
         CompanyDetails::where('user_id',Auth::id())->update($user);
 
+        $companydata = CompanyDetails::select('company_name.id as company_id','company_name.company_title','designation.id as designation_id','designation.designation_title','company_details.description','company_details.company_logo','company_details.ragistration_office','company_details.gst_number')->leftjoin('company_name','company_name.id','=','company_details.company_name')->leftjoin('designation','designation.id','=','company_details.designation')->where('company_details.user_id',Auth::id())->first();
+
         return response()->json([
             'success' => true,
             'message' => 'Profile Updated Sucessfully',
+            'company_data' => $companydata
         ], Response::HTTP_OK);
     }
 

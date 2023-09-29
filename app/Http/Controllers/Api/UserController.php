@@ -46,7 +46,7 @@ class UserController extends Controller{
         if($updated_data->profile_img != null){
             $updated_data['profile_img'] = env('APP_URL').'/upload/profile_img/'.$updated_data->profile_img;
         }else{
-            $updated_data['profile_img'] = env('APP_URL').'/images/dummy_profile.jpg';
+            $updated_data['profile_img'] = env('APP_URL').'/images/.dummy_profile.png';
         }
 
         return response()->json([
@@ -93,13 +93,13 @@ class UserController extends Controller{
         if($data->profile_img != null){
             $data['profile_img'] = env('APP_URL').'/upload/profile_img/'.$data->profile_img;
         }else{
-            $data['profile_img'] = env('APP_URL').'/images/dummy_profile.jpg';
+            $data['profile_img'] = env('APP_URL').'/images/dummy_profile.png';
         }
 
         if($data->company_logo != null){
             $data['company_logo'] = env('APP_URL').'/upload/user_company_logo/'.$data->company_logo;
         }else{
-            $data['company_logo'] = env('APP_URL').'/images/dummy_profile.jpg';
+            $data['company_logo'] = env('APP_URL').'/images/dummy_profile.png';
         }
 
         return response()->json($data, Response::HTTP_OK);

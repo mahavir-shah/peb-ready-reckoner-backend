@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\NewsController;
 use App\Http\Controllers\Admin\WebConfigController;
 use App\Http\Controllers\Admin\CompanyController;
 use App\Http\Controllers\Admin\DesignationController;
+use App\Http\Controllers\WebhookReceiveController;
 
 /*
 |--------------------------------------------------------------------------
@@ -64,5 +65,9 @@ Route::group(['middleware' =>['auth']], function () {
     Route::post('/designation-update', [DesignationController::class, 'update'])->name('admin.designationUpdate');
     Route::post('/designation-arcade-data', [DesignationController::class, 'designationArcadeData'])->name('admin.designationArcadeData');
     Route::post('/designation-restore', [DesignationController::class, 'restore'])->name('admin.designationRestore');
-
 });
+
+
+// Webhook testing
+Route::get('/purchaseReceive',[WebhookReceiveController::class, 'purchaseReceive']);
+Route::get('/ReceiveToken',[WebhookReceiveController::class, 'tokenReceive']);

@@ -25,6 +25,8 @@ use App\Http\Controllers\Admin\DesignationController;
 // Route::get('fill-data-pdf', [PDFController::class,'index']);
 
 Route::get('/', [LoginController::class, 'LoginForm'])->name('login'); 
+Route::get('/payment/{plan}/{id}', [LoginController::class, 'payment'])->name('paymentDetails');
+Route::post('/payment-process', [LoginController::class, 'paymentProcess'])->name('paymentProcess');
 Route::post('/login-process', [LoginController::class, 'login'])->name('loginProcess');
 
 Route::group(['middleware' =>['auth']], function () {

@@ -9,6 +9,7 @@ use Session;
 use App\Models\User;
 use App\Models\UserPlanDetail;
 use App\Models\UserPlanHistory;
+use App\Models\SubscriptionPlan;
 use Helper;
 use Hash;
 use Validator;
@@ -60,13 +61,7 @@ class LoginController extends Controller
 
     public function payment($plan,$id){
         $user = User::where('id',$id)->get()->first();
-        if($plan == 'basic'){
-            $price = 149;
-        }elseif($plan == 'premium'){
-            $price = 249;
-        }else{
-            $price = 499;
-        }
+        $price = SubscriptionPlan::select('amount')->where('plan_name',$plan)->first()->amount;
         $currentDateTime = Carbon::now();
         $expirt_date = Carbon::now()->addMonths(1)->format('d/m/Y');
         return view('payment',compact('user','plan','price','expirt_date'));

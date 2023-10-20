@@ -209,7 +209,6 @@ class OtpController extends Controller{
         }else{
             $user_data['profile_img'] = env('APP_URL').'/images/dummy_profile.png';
         }
-        $user_data['plan_status'] = $user_data->plan_status == 1 ? true : false;
 		return response()->json([
             'success' => true,
             'token_type' => 'bearer',

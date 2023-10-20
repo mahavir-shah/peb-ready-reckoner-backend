@@ -13,7 +13,7 @@ use File;
 class NewsController extends Controller{
 
     public function getNews(){
-        $news = News::select('id','image','title','content')->get();
+        $news = News::select('id','image','title','content')->orderBy('id', 'desc')->get();
 
         foreach($news as $key=>$data){
             $news[$key]['image'] = env('APP_URL').'/upload/news/'.$data->image;  

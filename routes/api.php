@@ -21,7 +21,6 @@ use App\Http\Controllers\Api\PaymentController;
 // Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 //     return $request->user();
 // });
-
 Route::post('send-otp', [OtpController::class, 'SendOtp']);
 Route::post('login', [OtpController::class, 'login']);
 Route::post('register', [OtpController::class, 'register']);
@@ -34,11 +33,14 @@ Route::group(['middleware' => ['jwt.verify']], function() {
     Route::post('logout', [OtpController::class, 'logout']);
 
     //User
+    
+    Route::get('get-state-cities', [UserController::class, 'getStateCities']);
     Route::get('get-profile', [UserController::class, 'getProfile']);
     Route::post('update-profile', [UserController::class, 'updateProfile']);
     Route::get('get-user-rate-material', [UserController::class, 'getUserRateMaterial']);
     Route::post('user-rate-material', [UserController::class, 'userRateMaterial']);
     Route::post('update-user-companydetails', [UserController::class, 'updateCompanyDetails']);
+    
 
     //News
     Route::get('get-news', [NewsController::class, 'getNews']);

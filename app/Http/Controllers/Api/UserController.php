@@ -176,4 +176,9 @@ class UserController extends Controller{
         ], Response::HTTP_OK);
     }
 
+    public function getStateCities(){
+        $data = File::get(public_path('upload/location_list/stateCities.json'));
+        return response($data);
+    }
+
 }

@@ -58,7 +58,8 @@ class EstimateController extends Controller{
            'gantry_girder_in_all_days' => $request->gantry_girder_in_all_days,
            'no_gable_on_both_side' => $request->no_gable_on_both_side
         ];
-        ProjectEstimantion::create($data);
+       $id = ProjectEstimantion::create($data)->id;
+       $data['id'] =  $id;
         return response()->json([$data], Response::HTTP_OK);
     }
 }

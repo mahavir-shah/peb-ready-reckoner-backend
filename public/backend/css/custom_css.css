@@ -35,7 +35,7 @@ label.error {
 }
 
 #sidebar-wrapper .sidebar-heading {
-    padding: 24px 45px;
+    padding: 13px 20px;
     border-right: none !important;
     border-bottom: 1px solid #a7a7a7 !important;
     height: 80px;
@@ -60,7 +60,7 @@ label.error {
 }
 
 #sidebar-wrapper .sidebar-heading img {
-    width: 132px;
+    width: 170px;
 }
 
 #sidebar-wrapper .list-group {

@@ -8,9 +8,9 @@
     <meta name="author" content="" />
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Peb Ready Reckoner - Admin</title>
-<link rel="icon" href="{{asset('backend/favicon.ico')}}">
+<link rel="icon" href="{{asset('images/ready_logo.png')}}">
     <!-- Favicon-->
-    <link rel="icon" type="image/png" href="{{asset('backend/favicon.ico')}}">
+    <link rel="icon" type="image/png" href="{{asset('images/ready_logo.png')}}">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://use.fortawesome.com/b5e0e19b.js"></script>
@@ -44,7 +44,7 @@
             <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
                 <div class="container">
                     <div class="mobile-logo">
-                        <img src="{{ asset('backend/butterfly-logo.svg') }}" width="200px">
+                        <img src="#" width="200px">
                     </div>
                     <!--<button class="btn btn-primary" id="sidebarToggle">Toggle Menu</button>-->
                     <button class="navbar-toggler" id="sidebarToggle" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>

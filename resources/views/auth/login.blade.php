@@ -51,6 +51,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
+                <div class="text-center mt-5 mb-4"><a class="text-center d-block" href="{{route('login')}}"><img src = "{{ asset('images/Ready Reknor Logo-.svg') }}"></a></div>
                 <div class="card-header text-center"><h4 class="mb-0">{{ __('Admin Login') }}</h4></div>
                 <div class="card-body">
                      @if (session('status'))

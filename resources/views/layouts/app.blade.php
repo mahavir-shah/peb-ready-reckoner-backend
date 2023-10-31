@@ -26,7 +26,7 @@
     {{-- <script type="text/javascript" src="https://www.bugherd.com/sidebarv2.js?apikey=gilyw01hr4vp1tufliqidw" async="true"></script> --}}
     <script type="text/javascript" src="https://www.bugherd.com/sidebarv2.js?apikey=b2ucalq8gvrdapvxarcgva" async="true"></script>
 </head>
-<body>
+<body style="background-image: url({{ asset('images/iron-roof-3d-model-max-bip-obj-mtl-3ds-fbx-stl-dae.jpg') }});background-repeat: no-repeat;background-position: center;background-size: cover;">
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
@@ -60,7 +60,7 @@
                 </div>
             </div>
         </nav>
-        <div class="text-center mt-5 mb-4"><a class="text-center d-block" href="{{route('login')}}"><img src = "{{ asset('backend/butterfly-logo.svg') }}"></a></div>
+        <div class="text-center mt-5 mb-4"><a class="text-center d-block" href="{{route('login')}}"><img src = "{{ asset('images/Ready Reknor Logo-.svg') }}"></a></div>
         <main class="py-4 text-center">
             @yield('content')
         </main>

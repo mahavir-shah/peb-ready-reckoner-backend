@@ -19,6 +19,11 @@ body {
 #app .text-center.mt-5 img {
     max-width: 215px;
     margin-bottom: 70px;
+    width: 200px;
+    height: 164px;
+}
+a.text-center.d-block{
+    height: 179px;
 }
 #app .py-4 {
     padding: 0 !important;

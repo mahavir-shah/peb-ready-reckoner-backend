@@ -44,7 +44,7 @@
              height: 100px;
         }
     }
- 
+
 </style>
 @section('content')
 <div class="container">
@@ -68,7 +68,7 @@
                             {{ session('error') }}
                         </div>
                     <form id="login-form" method="post" action="{{ route('loginProcess') }}" >
-                       @csrf 
+                       @csrf
                         <input type="hidden" id="recaptcha_token" name="recaptcha_token" value="">
                         <div class="row mb-3">
                             <label for="email" class="text-left col-md-5 col-form-label text-md-end">{{ __('Email') }}</label>
@@ -144,13 +144,13 @@ $(document).ready(function() {
                 required:"The email field is required",
                 email:"Enter valid email address",
                // remote: "The entered email is invalid"
-            },  
+            },
             password: {
                 required:"The password field is required"
             }
         }
     });
-     
+
     $(document).on('change','#email,#password',function() {
         if($('#login-form').valid() == 1){
             $('.login_btn').removeAttr('disabled');

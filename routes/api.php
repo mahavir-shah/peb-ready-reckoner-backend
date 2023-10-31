@@ -52,4 +52,6 @@ Route::group(['middleware' => ['jwt.verify']], function() {
 
     //Estimate
     Route::post('create-estimate', [EstimateController::class, 'createEstimate']);
+    Route::get('export-estimate/{id}', [EstimateController::class, 'exportEstimate']);
+
 });

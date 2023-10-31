@@ -27,6 +27,7 @@ Route::post('login', [OtpController::class, 'login']);
 Route::post('register', [OtpController::class, 'register']);
 Route::get('get-company-name', [OtpController::class, 'getCompanyName']);
 Route::get('get-designatione', [OtpController::class, 'getdesignation']);
+Route::get('export-estimate/{id}', [EstimateController::class, 'exportEstimate']);
 
 Route::group(['middleware' => ['jwt.verify']], function() {
 
@@ -52,6 +53,5 @@ Route::group(['middleware' => ['jwt.verify']], function() {
 
     //Estimate
     Route::post('create-estimate', [EstimateController::class, 'createEstimate']);
-    Route::get('export-estimate/{id}', [EstimateController::class, 'exportEstimate']);
 
 });

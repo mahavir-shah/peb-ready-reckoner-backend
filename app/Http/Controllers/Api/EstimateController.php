@@ -11,6 +11,7 @@ use Helper;
 use Auth;
 use File;
 use DB;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class EstimateController extends Controller{
 
@@ -61,5 +62,12 @@ class EstimateController extends Controller{
        $id = ProjectEstimantion::create($data)->id;
        $data['id'] =  $id;
         return response()->json([$data], Response::HTTP_OK);
+    }
+
+    public function exportEstimate($id){
+        $estimate = ProjectEstimantion::find($id)->toArray();
+        $pdf = PDF::loadView('estimatePdf', $estimate);
+    
+        return $pdf->download('estimatePdf.pdf');
     }
 }

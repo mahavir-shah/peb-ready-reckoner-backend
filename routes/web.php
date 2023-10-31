@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\WebConfigController;
 use App\Http\Controllers\Admin\CompanyController;
 use App\Http\Controllers\Admin\DesignationController;
 use App\Http\Controllers\WebhookReceiveController;
+use App\Http\Controllers\PdfController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,11 +22,11 @@ use App\Http\Controllers\WebhookReceiveController;
 */
 
 
- 
+
 // Route::get('/home/{id}', [App\Http\Controllers\HomeController::class, 'detailPage'])->name('detailPage');
 // Route::get('fill-data-pdf', [PDFController::class,'index']);
 
-Route::get('/', [LoginController::class, 'LoginForm'])->name('login'); 
+Route::get('/', [LoginController::class, 'LoginForm'])->name('login');
 Route::get('/payment/{plan}/{id}', [LoginController::class, 'payment'])->name('paymentDetails');
 Route::post('/payment-process', [LoginController::class, 'paymentProcess'])->name('paymentProcess');
 Route::post('/login-process', [LoginController::class, 'login'])->name('loginProcess');
@@ -73,3 +74,7 @@ Route::group(['middleware' =>['auth']], function () {
 // Webhook testing
 Route::get('/purchaseReceive',[WebhookReceiveController::class, 'purchaseReceive']);
 Route::get('/ReceiveToken',[WebhookReceiveController::class, 'tokenReceive']);
+
+// Pdf dowmload
+// Route::get('/export_pdf',[LoginController::class,'export_pdf'])->name('export_pdf');
+Route::get('export-pdf', [PdfController::class, 'export_pdf'])->name('admin.Pdf');

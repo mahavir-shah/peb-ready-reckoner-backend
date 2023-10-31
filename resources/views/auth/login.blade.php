@@ -74,7 +74,7 @@
                         <div class="row mb-3">
                             <label for="email" class="text-left col-md-5 col-form-label text-md-end">{{ __('Email') }}</label>
 
-                            <div class="col-md-6">
+                            <div class="col-md-6 error-invalid">
                                 <input id="email" type="text" class="form-control @error('email') is-invalid @enderror" name="email">
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
@@ -86,10 +86,10 @@
                         <div class="row mb-3">
                             <label for="password" class="text-left col-md-5 col-form-label text-md-end">{{ __('Password') }}</label>
 
-                            <div class="col-md-6">
+                            <div class="col-md-6 error-invalid" >
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password">
                                 @error('password')
-                                    <span class="invalid-feedback" role="alert">
+                                    <span  class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror

@@ -202,3 +202,13 @@ a.text-center.d-block{
 input[type="text"] {
     border-radius: 40px;
 }
+
+.error-invalid{
+    position: relative;
+}
+#app .py-4 .container .row .col-md-8 .card-body form .error-invalid label{
+    position: absolute;
+    width: 100%;
+    font-size: 12px ;
+    left: 0;
+}

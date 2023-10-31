@@ -6,6 +6,7 @@ use App\Http\Controllers\Api\OtpController;
 use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Api\NewsController;
 use App\Http\Controllers\Api\PaymentController;
+use App\Http\Controllers\Api\EstimateController;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,4 +49,7 @@ Route::group(['middleware' => ['jwt.verify']], function() {
     //Payment
     Route::get('get-plan-name', [PaymentController::class, 'getPlanName']);
     Route::get('get-payment-history', [PaymentController::class, 'getPaymentHistory']);
+
+    //Estimate
+    Route::post('create-estimate', [EstimateController::class, 'createEstimate']);
 });

@@ -129,7 +129,7 @@ tr:nth-child(even) {
     <td>{{$finishing_kg}}</td>
   </tr>
   <tr>
-    <td>Total Quantity without gantry</td>
+    <td>Total Quantity @if($gantry_girder_in_all_days == 1) with @else without @endif gantry</td>
     <td>{{$total_quantity_m2}}</td>
     <td>{{$atotal_quantity_kg}}</td>
   </tr>

@@ -44,6 +44,10 @@ function finishing($fm_finishing,$fc_finishing,$span){
     return number_format((($fm_finishing - $fc_finishing) / ($span * 60)) + ($fc_finishing / (60 * $span)),2);
 }
 
-function total_quantity_m2(){
-    
+function with_ganty($fm_gantry_girder,$fc_gantry_girder,$span,$gantry){
+    if($gantry == 1){
+        return number_format((($fm_gantry_girder - $fc_gantry_girder) / ($span * 60)) + ($fc_gantry_girder / (60 * $span)),2);
+    }else{
+        return 0;
+    }
 }

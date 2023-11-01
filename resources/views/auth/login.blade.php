@@ -10,6 +10,10 @@
      #turn p {
          font-size: 0;
     }
+    .active-btn{
+        background-color:#206DA5 !important;
+        border-color: #206DA5  !important;
+    }
      @media screen and (min-width: 0) and (max-width: 812px) and (orientation: landscape) {
          #turn {
              display: block;

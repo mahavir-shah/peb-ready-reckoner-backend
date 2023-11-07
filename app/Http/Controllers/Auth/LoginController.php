@@ -96,6 +96,6 @@ class LoginController extends Controller
             'plan_status' => 1
         ]);
 
-        return redirect()->back();
+        return redirect('http://localhost:5173/');
     }
 }

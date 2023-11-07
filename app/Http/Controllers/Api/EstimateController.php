@@ -85,6 +85,20 @@ class EstimateController extends Controller{
 
     public function  getEstimateHistoryDetails(Request $request){
         $data =  ProjectEstimantion::where('id',$request->id)->first();
+        $data['top_purlin_m2'] = number_format($data->top_purlin_m2,2);
+        $data['side_wall_girt_m2'] = number_format($data->side_wall_girt_m2,2);
+        $data['gable_end_girt_m2'] = number_format($data->gable_end_girt_m2,2);
+        $data['roofing_sheet_m2'] = number_format($data->roofing_sheet_m2,2);
+        $data['clading_sheet_m2'] = number_format($data->clading_sheet_m2,2);
+        $data['sag_rod_m2'] = number_format($data->sag_rod_m2,2);
+        $data['stay_brace_m2'] = number_format($data->stay_brace_m2,2);
+        $data['anchor_bolt_m2'] = number_format($data->anchor_bolt_m2,2);
+        $data['cleat_m2'] = number_format($data->cleat_m2,2);
+        $data['x_bracing_m2'] = number_format($data->x_bracing_m2,2);
+        $data['tie_strut_m2'] = number_format($data->tie_strut_m2,2);
+        $data['gantry_girder_m2'] = number_format($data->gantry_girder_m2,2);
+        $data['finishing_m2'] = number_format($data->finishing_m2,2);
+        $data['total_quantity_m2'] = number_format($data->total_quantity_m2,2);
         return response()->json([$data], Response::HTTP_OK);
      }
 }

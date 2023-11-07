@@ -85,6 +85,6 @@ class EstimateController extends Controller{
 
     public function  getEstimateHistoryDetails(Request $request){
         $data =  ProjectEstimantion::where('id',$request->id)->first();
-        return response()->json($data, Response::HTTP_OK);
+        return response()->json([$data], Response::HTTP_OK);
      }
 }

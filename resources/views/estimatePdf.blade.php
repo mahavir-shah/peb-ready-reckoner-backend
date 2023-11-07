@@ -124,10 +124,22 @@ tr:nth-child(even) {
     <td>{{$x_bracing_kg}}</td>
   </tr>
   <tr>
+    <td>Tie Strut</td>
+    <td>{{$tie_strut_m2}}</td>
+    <td>{{$tie_strut_kg}}</td>
+  </tr>
+  <tr>
     <td>Finishing</td>
     <td>{{$finishing_m2}}</td>
     <td>{{$finishing_kg}}</td>
   </tr>
+  @if($gantry_girder_in_all_days == 1)
+  <tr>
+    <td>Gantry Girder</td>
+    <td>{{$gantry_girder_m2}}</td>
+    <td>{{$gantry_girder_kg}}</td>
+  </tr>
+  @endif
   <tr>
     <td>Total Quantity @if($gantry_girder_in_all_days == 1) with @else without @endif gantry</td>
     <td>{{$total_quantity_m2}}</td>

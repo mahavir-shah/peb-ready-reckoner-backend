@@ -71,79 +71,79 @@ tr:nth-child(even) {
   <tr>
     <td>Main frame steel</td>
     <td>{{$main_frame_steel_m2}}</td>
-    <td>{{$main_frame_steel_kg}}</td>
+    <td>{{number_format($main_frame_steel_kg)}}</td>
   </tr>
   <tr>
     <td>Top purlin</td>
     <td>{{$top_purlin_m2}}</td>
-    <td>{{$top_purlin_kg}}</td>
+    <td>{{number_format($top_purlin_kg)}}</td>
   </tr>
   <tr>
     <td>Side wall girt</td>
     <td>{{$side_wall_girt_m2}}</td>
-    <td>{{$side_wall_girt_kg}}</td>
+    <td>{{number_format($side_wall_girt_kg)}}</td>
   </tr>
   <tr>
     <td>Gable end girt</td>
     <td>{{$gable_end_girt_m2}}</td>
-    <td>{{$gable_end_girt_kg}}</td>
+    <td>{{number_format($gable_end_girt_kg)}}</td>
   </tr>
   <tr>
     <td>Roofing Sheet</td>
     <td>{{$roofing_sheet_m2}}</td>
-    <td>{{$roofing_sheet_kg}}</td>
+    <td>{{number_format($roofing_sheet_kg)}}</td>
   </tr>
   <tr>
     <td>Cladding Sheet</td>
     <td>{{$clading_sheet_m2}}</td>
-    <td>{{$clading_sheet_kg}}</td>
+    <td>{{number_format($clading_sheet_kg)}}</td>
   </tr>
   <tr>
     <td>Sag Rod</td>
     <td>{{$sag_rod_m2}}</td>
-    <td>{{$sag_rod_kg}}</td>
+    <td>{{number_format($sag_rod_kg)}}</td>
   </tr>
   <tr>
-    <td>Stay</td>
+    <td>Flange Brace</td>
     <td>{{$stay_brace_m2}}</td>
-    <td>{{$stay_brace_kg}}</td>
+    <td>{{number_format($stay_brace_kg)}}</td>
   </tr>
   <tr>
     <td>Anchor bolt</td>
     <td>{{$anchor_bolt_m2}}</td>
-    <td>{{$anchor_bolt_kg}}</td>
+    <td>{{number_format($anchor_bolt_kg)}}</td>
   </tr>
   <tr>
-    <td>Cleat</td>
+    <td>Purlin Clear</td>
     <td>{{$cleat_m2}}</td>
-    <td>{{$cleat_kg}}</td>
+    <td>{{number_format($cleat_kg)}}</td>
   </tr>
   <tr>
     <td>X-Bracing</td>
     <td>{{$x_bracing_m2}}</td>
-    <td>{{$x_bracing_kg}}</td>
+    <td>{{number_format($x_bracing_kg)}}</td>
   </tr>
   <tr>
     <td>Tie Strut</td>
     <td>{{$tie_strut_m2}}</td>
-    <td>{{$tie_strut_kg}}</td>
+    <td>{{number_format($tie_strut_kg)}}</td>
   </tr>
   <tr>
     <td>Finishing</td>
     <td>{{$finishing_m2}}</td>
-    <td>{{$finishing_kg}}</td>
+    <td>{{number_format($finishing_kg)}}</td>
   </tr>
   @if($gantry_girder_in_all_days == 1)
   <tr>
     <td>Gantry Girder</td>
     <td>{{$gantry_girder_m2}}</td>
-    <td>{{$gantry_girder_kg}}</td>
+    <td>{{number_format($gantry_girder_kg)}}</td>
   </tr>
   @endif
   <tr>
     <td>Total Quantity @if($gantry_girder_in_all_days == 1) with @else without @endif gantry</td>
     <td>{{$total_quantity_m2}}</td>
-    <td>{{$atotal_quantity_kg}}</td>
+    <td>{{number_format($atotal_quantity_kg)}}</td>
   </tr>
 </table>
 

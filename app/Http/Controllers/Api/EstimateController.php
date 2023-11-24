@@ -72,7 +72,7 @@ class EstimateController extends Controller{
     }
 
     public function exportEstimate($id){
-        $estimate = ProjectEstimantion::find($id)->toArray();
+        $estimate = ProjectEstimantion::select('project_estimantion.*','company_details.company_logo','company_details.company_name','company_details.ragistration_office','user_rates_materials.main_frame_steel','user_rates_materials.cold_form_purlin','user_rates_materials.side_wall_girt','user_rates_materials.gable_end_girt','user_rates_materials.roofing_sheet','user_rates_materials.side_cladding_sheet','user_rates_materials.sag_rod','user_rates_materials.cold_form_stay_brace','user_rates_materials.anchor_bolt','user_rates_materials.cleat','user_rates_materials.x_bracing','user_rates_materials.finishing','user_rates_materials.tie_beam','users.name','users.mobile_no')->leftjoin('user_rates_materials','user_rates_materials.user_id','=','project_estimantion.user_id')->leftjoin('company_details','company_details.user_id','=','project_estimantion.user_id')->leftjoin('users','users.id','=','project_estimantion.user_id')->where('project_estimantion.id',$id)->get()->first()->toArray();
         $pdf = PDF::loadView('estimatePdf', $estimate);
     
         return $pdf->download('estimatePdf.pdf');

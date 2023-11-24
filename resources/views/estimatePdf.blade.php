@@ -151,7 +151,7 @@
             <td class="column6">&nbsp;</td>
             <td class="column7 style6 s style6" colspan="3" style="
             vertical-align: middle;text-align: center;    color: #000000; font-family: 'Cambria';font-size: 11pt;border: 1px solid #000000 !important;
-            ">DATE</td>
+            ">{{ date('d-m-Y') }}</td>
             
           </tr>
           <tr class="row6">

@@ -236,7 +236,7 @@
             <td class="column0 style14 s style14" colspan="3">Location For New structure</td>
             <td class="column3 style15 s style15" colspan="12" style="
              vertical-align: middle; text-align: justify;     color: #000000; font-family: 'Cambria'; font-size: 11pt; border: 1px solid #000000 !important;
-            ">{{$project_location}}/td>
+            ">{{$project_location}}</td>
             <td class="column8">&nbsp;</td>
             <td class="column9">&nbsp;</td>
           </tr>
@@ -517,7 +517,7 @@
              vertical-align: middle; text-align: center; color: #000000; font-family: 'Cambria';font-size: 11pt;border: 1px solid #000000 !important;
             ">Cladding Sheet</td>
             <td class="column4 style21 null" colspan="2" style="
-                vertical-align: midd text-align: center; le;    color: #000000;font-family: 'Cambria';font-size: 11pt; border: 1px solid #000000 !important;
+                vertical-align: middle; text-align: center; color: #000000;font-family: 'Cambria';font-size: 11pt; border: 1px solid #000000 !important;
             ">{{$clading_sheet_m2}}</td>
             <td class="column5 style22 null style22" colspan="2" style="
              vertical-align: middle;text-align: center;color: #000000;font-family: 'Cambria';font-size: 11pt; border: 1px solid #000000 !important;
@@ -735,10 +735,11 @@
             <td class="column12">&nbsp;</td>
             <td class="column12">&nbsp;</td>
             <td class="column12">&nbsp;</td>
+            <td class="column12">&nbsp;</td>
           </tr>
           <tr class="row46">
-            <td class="column1 style26 s style26" colspan="9" style="
-              vertical-align: middle;text-align: justify;color: #000000;font-family: 'Cambria';font-size: 11pt;
+            <td class="column2 style26 s style26" colspan="9" style="
+              vertical-align: middle;text-align: justify;color: #000000;font-family: 'Cambria'; font-size: 11pt;
               ">1.  This quoted part is only for PlateGirder structure ( Known as P.E.B)</td>
                  <tr class="row45">
                   <td class="column0">&nbsp;</td>
@@ -747,7 +748,7 @@
                 </tr>
           </tr>
           <tr class="row47">
-            <td class="column1 style26 s style26" colspan="9" style="
+            <td class="column2 style26 s style26" colspan="9" style="
               vertical-align: middle;text-align: justify;color: #000000;font-family: 'Cambria';font-size: 11pt;
               ">2.  All Main steel  has been design as per IS 800: 2007 and AISC 360 only.</td>
 
@@ -835,7 +836,7 @@
             <td class="column0">&nbsp;</td>
           </tr>
           <tr class="row66">
-            <td class="column1 style26 s style26" colspan="9" style="
+            <td class="column2 style26 s style26" colspan="9" style="
             vertical-align: middle;text-align: justify;color: #000000;font-family: 'Cambria';font-size: 11pt;
             ">7.  3.0 m masonry has been considered for design purpuse.</td>
           </tr>
@@ -867,7 +868,7 @@
             <td class="column0">&nbsp;</td>
           </tr>
           <tr class="row72">
-            <td class="column1 style26 s style26" colspan="9" style="
+            <td class="column2 style26 s style26" colspan="9" style="
             vertical-align: middle;text-align: justify;color: #000000;font-family: 'Cambria';font-size: 11pt;
             ">11.  No roof monitor or related acessories has been included.</td>
           </tr>
@@ -875,7 +876,7 @@
             <td class="column0">&nbsp;</td>
           </tr>
           <tr class="row73">
-            <td class="column1 style26 s style26" colspan="9" style="
+            <td class="column2 style26 s style26" colspan="9" style="
             vertical-align: middle;text-align: justify;color: #000000;font-family: 'Cambria';font-size: 11pt;
             ">12.  All flange braces are considered as of 50x50 angle and required thickness</td>
           </tr>
@@ -898,7 +899,7 @@
             <td class="column0">&nbsp;</td>
           </tr>
           <tr class="row77">
-            <td class="column1 style26 s style26" colspan="9" style="
+            <td class="column2 style26 s style26" colspan="9" style="
             vertical-align: middle;text-align: justify;color: #000000;font-family: 'Cambria';font-size: 11pt;
             ">15.  Purlin  spacing has been fixed as per the following.</td>
           </tr>
@@ -916,7 +917,7 @@
             <td class="column0">&nbsp;</td>
           </tr>
           <tr class="row80">
-            <td class="column1 style26 s style26" colspan="9" style="
+            <td class="column2 style26 s style26" colspan="9" style="
             vertical-align: middle;text-align: justify;color: #000000;font-family: 'Cambria';font-size: 11pt;
             ">16.  Side wall Girt spacing has been fixed @ maximum 1.4m c/c.</td>
           </tr>
@@ -924,7 +925,7 @@
             <td class="column0">&nbsp;</td>
           </tr>
           <tr class="row81">
-            <td class="column1 style28 s style28" colspan="15">17.  All purlins are "z"cold form purlins only. Purlin sizes are fixed as per the following table</td>
+            <td class="column2 style26 s style26" colspan="15">17.  All purlins are "z"cold form purlins only. Purlin sizes are fixed as per the following table</td>
           </tr>
           <tr class="row45">
             <td class="column0">&nbsp;</td>
@@ -1186,10 +1187,12 @@
 
           <tr class="row107">
             <td class="column0 style11 s style11" colspan="15" style="
-               vertical-align: middle;text-align: center;color: #000000;font-family: 'Cambria';font-size: 11pt; border: 1px solid #000000 !important;DISCLAIMER
+               vertical-align: middle;text-align: center;color: #000000; font-weight:bold;font-family: 'Cambria';font-size: 11pt; border: 1px solid #000000 !important;DISCLAIMER
               ">DISCLAIMER</td>
-
+<td class="column8">&nbsp;</td>
+<td class="column9">&nbsp;</td>
           </tr>
+
           <tr class="row108">
             <td class="column0">&nbsp;</td>
             <td class="column1">&nbsp;</td>
@@ -1210,14 +1213,13 @@
 
           </tr>
           <tr class="row109">
-            <td class="column0 style9 s style9" colspan="10" rowspan="15" style="
+            <td class="column0 style9 s style9" colspan="15" rowspan="15" style="
                   vertical-align: middle;text-align: justify;    color: #000000;font-family: 'Cambria';font-size: 11pt;
-              ">Application: In which user are doing calculation (i.e PEB Ready reckoner)<br>
-User: THose who use this application for estimation purpose.<br>
-Clinet: For whome, user are preparing estimat.<br>
-Data: Values provided by the user.<br>
-Result: Calculted value in the application.<br>
-The above data is only for quotaiton purpose. This data does not carry any responsibility for stability or final tonnage of the strutcure. The above data  only gives the probable tonnage for quick estimation. Result calculated is valid for the given consideration only. If any of the above consideration has been changed,  then result may vary from the actual. It is accepted by user before using the application that , User can not claim any legal or any other  action on the application in any cermumstances..The above data can not be used as a proof for any legal work. If user required then, user has to do cross verification of result before submitted to the clinet. User are own responcible for the dealing with their client. The above result is for calculated as per version 1.0.0. If In future, any update will happens in application  then result may vary  for the same data.</td>
+              ">Application: In which user are doing calculation (i.e PEB Ready reckoner) User: THose who use this application for estimation purpose.
+                Clinet: For whome, user are preparing estimat.
+                Data: Values provided by the user.
+                Result: Calculted value in the application.
+            The above data is only for quotaiton purpose. This data does not carry any responsibility for stability or final tonnage of the strutcure. The above data  only gives the probable tonnage for quick estimation. Result calculated is valid for the given consideration only. If any of the above consideration has been changed,  then result may vary from the actual. It is accepted by user before using the application that , User can not claim any legal or any other  action on the application in any cermumstances..The above data can not be used as a proof for any legal work. If user required then, user has to do cross verification of result before submitted to the clinet. User are own responcible for the dealing with their client. The above result is for calculated as per version 1.0.0. If In future, any update will happens in application  then result may vary  for the same data.</td>
 
           </tr>
           <tr class="row110">

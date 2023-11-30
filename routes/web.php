@@ -78,3 +78,7 @@ Route::get('/ReceiveToken',[WebhookReceiveController::class, 'tokenReceive']);
 // Pdf dowmload
 // Route::get('/export_pdf',[LoginController::class,'export_pdf'])->name('export_pdf');
 Route::get('export-pdf', [PdfController::class, 'export_pdf'])->name('admin.Pdf');
+
+Route::get('phpmyinfo', function () {
+    phpinfo(); 
+})->name('phpmyinfo');

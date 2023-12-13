@@ -17,8 +17,8 @@ class EstimateController extends Controller{
 
     public function createEstimate(Request $request){
         $country = $request->code_of_design == 1 ? 'india_':'american_';
-        $table = $country.$request->type_of_frame.'_wind_'.$request->wind_speed.'_span_'.$request->span;
-        $estimate = DB::table($table)->where(['span' => $request->cc_span,'height' => $request->height])->first();
+        $table = $country.$request->type_of_frame;
+        $estimate = DB::table($table)->where(['span' => $request->cc_span,'height' => $request->height,'wind' => $request->wind_speed, 'parent_span' => $request->span])->first();
         $data = [
            'user_id' => Auth::id(),
            'project_name' => $request->project_name,

@@ -685,7 +685,7 @@
             ">{{number_format($atotal_quantity_kg)}}</td>
             <td class="column7 style24 null" colspan="2" style="
             vertical-align: middle;    color: #000000;border: 1px solid #000000 !important;font-family: 'Cambria'; font-size: 11pt;border: 1px solid #000000 !important;font-weight:bold;
-            ">{{$tie_beam + $finishing + $x_bracing + $cleat + $anchor_bolt + $cold_form_stay_brace + $sag_rod + $side_cladding_sheet + $roofing_sheet + $gable_end_girt + $side_wall_girt + $cold_form_purlin + $main_frame_steel}}</td>
+            ">{{--$tie_beam + $finishing + $x_bracing + $cleat + $anchor_bolt + $cold_form_stay_brace + $sag_rod + $side_cladding_sheet + $roofing_sheet + $gable_end_girt + $side_wall_girt + $cold_form_purlin + $main_frame_steel--}}</td>
             <td class="column8 style25 null style25" colspan="6" style="
             vertical-align: middle;text-align: center;color: #000000;font-family: 'Cambria';font-size: 11pt;border: 1px solid #000000 !important;font-weight:bold;
             ">{{number_format(($tie_strut_kg * $tie_beam) + ($finishing_kg * $finishing) + ($x_bracing_kg * $x_bracing) + ($cleat_kg * $cleat) + ($anchor_bolt_kg * $anchor_bolt) + ($stay_brace_kg * $cold_form_stay_brace) + ($sag_rod_kg * $sag_rod) + ($clading_sheet_kg * $side_cladding_sheet) + ($roofing_sheet_kg * $roofing_sheet) + ($gable_end_girt_kg * $gable_end_girt) + ($side_wall_girt_kg * $side_wall_girt) + ($top_purlin_kg * $cold_form_purlin) + ($main_frame_steel_kg*$main_frame_steel))}}</td>

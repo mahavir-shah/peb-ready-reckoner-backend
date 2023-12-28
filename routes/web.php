@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\NewsController;
 use App\Http\Controllers\Admin\WebConfigController;
 use App\Http\Controllers\Admin\CompanyController;
 use App\Http\Controllers\Admin\DesignationController;
+use App\Http\Controllers\Admin\PaymentFrontendController;
 use App\Http\Controllers\WebhookReceiveController;
 use App\Http\Controllers\PdfController;
 
@@ -27,9 +28,13 @@ use App\Http\Controllers\PdfController;
 // Route::get('fill-data-pdf', [PDFController::class,'index']);
 
 Route::get('/', [LoginController::class, 'LoginForm'])->name('login');
-Route::get('/payment/{plan}/{id}', [LoginController::class, 'payment'])->name('paymentDetails');
-Route::post('/payment-process', [LoginController::class, 'paymentProcess'])->name('paymentProcess');
+Route::get('/payment/{plan}/{id}', [PaymentFrontendController::class, 'payment'])->name('paymentDetails');
+Route::post('/payment-process', [PaymentFrontendController::class, 'paymentProcess'])->name('paymentProcess');
 Route::post('/login-process', [LoginController::class, 'login'])->name('loginProcess');
+Route::get('/add-credit/{aamount}/{id}', [PaymentFrontendController::class, 'addCredit'])->name('addCredit');
+Route::any('cashfree/payments/return', [PaymentFrontendController::class, 'returnUrl'])->name('returnUrl');
+Route::get('/cashfree/payment/success', [PaymentFrontendController::class, 'afterSuccess'])->name('afterSuccess');
+Route::get('/cashfree/payment/cancel', [PaymentFrontendController::class, 'afterCancel'])->name('afterCancel');
 
 Route::group(['middleware' =>['auth']], function () {
 

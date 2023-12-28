@@ -29,6 +29,7 @@ class User extends Authenticatable implements JWTSubject
         'opt_code',
         'selected_theme',
         'selected_plan',
+        'credit',
         'plan_status'
     ];
 

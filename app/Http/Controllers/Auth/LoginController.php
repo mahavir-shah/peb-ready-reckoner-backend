@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Auth;
 use Session;
 use App\Models\User;
@@ -57,46 +58,5 @@ class LoginController extends Controller
         Auth::logout();
   
         return Redirect('/');
-    }
-
-    public function payment($plan,$id){
-        $user = User::where('id',$id)->get()->first();
-        $price = SubscriptionPlan::select('amount')->where('plan_name',$plan)->first()->amount;
-        $currentDateTime = Carbon::now();
-        $expirt_date = Carbon::now()->addMonths(1)->format('d/m/Y');
-        return view('payment',compact('user','plan','price','expirt_date'));
-    }
-
-    public function paymentProcess(Request $request) {
-        $count = UserPlanDetail::where('user_id',$request->user_id)->count();
-        if($count == 0){
-            UserPlanDetail::create([
-                'user_id' => $request->user_id,
-                'plan_name' => $request->plan_name,
-                'payment_detail' => '',
-                'plan_expirey_date' => Carbon::now()->addMonths(1),
-            ]);
-        }else{
-             UserPlanDetail::where('user_id',$request->user_id)->update([
-                'user_id' => $request->user_id,
-                'plan_name' => $request->plan_name,
-                'payment_detail' =>'',
-                'plan_expirey_date' => Carbon::now()->addMonths(1),
-            ]);
-        }
-        UserPlanHistory::create([
-            'user_id' => $request->user_id,
-            'plan_name' => $request->plan_name,
-            'payment_detail' => '',
-            'plan_expirey_date' => Carbon::now()->addMonths(1),
-        ]);
-
-        User::where('id',$request->user_id)->update([
-            'selected_plan' => $request->plan_name,
-            'plan_status' => 1
-        ]);
-
-        echo "Payment Done";
-        // return redirect('http://localhost:5173/');
     }
 }

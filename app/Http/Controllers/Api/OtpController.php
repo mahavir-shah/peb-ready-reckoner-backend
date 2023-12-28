@@ -85,8 +85,8 @@ class OtpController extends Controller{
         ]);
 
         //UserOtp::where('user_id', $user->id)->delete();
-        //$otp = rand(1234, 9999);
-        $otp = 1234;
+        $otp = rand(1234, 9999);
+        //$otp = 1234;
         $otp_data = UserOtp::create([
             'user_id' => $user,
             'otp' => $otp
@@ -94,20 +94,20 @@ class OtpController extends Controller{
 
         $curl = curl_init();
 
-        //     curl_setopt_array($curl, array(
-        //     CURLOPT_URL => 'https://api.authkey.io/request?authkey=c9f946d397cec9f1&mobile='.$user->mobile_no.'&country_code=91&sid=9561&company=IOBJE&otp='.$otp,
-        //     CURLOPT_RETURNTRANSFER => true,
-        //     CURLOPT_ENCODING => '',
-        //     CURLOPT_MAXREDIRS => 10,
-        //     CURLOPT_TIMEOUT => 0,
-        //     CURLOPT_FOLLOWLOCATION => true,
-        //     CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-        //     CURLOPT_CUSTOMREQUEST => 'GET',
-        //     ));
+            curl_setopt_array($curl, array(
+            CURLOPT_URL => 'https://api.authkey.io/request?authkey=c9f946d397cec9f1&mobile='.$request->mobile_no.'&country_code=91&sid=9561&company=PEBRR&otp='.$otp,
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => '',
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 0,
+            CURLOPT_FOLLOWLOCATION => true,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => 'GET',
+            ));
 
-        //     $response = curl_exec($curl);
+            $response = curl_exec($curl);
 
-        //     curl_close($curl);
+            curl_close($curl);
 
         // $mailData = [
         //     'name' => $request->name
@@ -142,31 +142,31 @@ class OtpController extends Controller{
         }
   
         UserOtp::where('user_id', $user->id)->delete();
-        //$otp = rand(1234, 9999);
-        $otp = 1234;
+        $otp = rand(1234, 9999);
+        //$otp = 1234;
         $otp_data = UserOtp::create([
             'user_id' => $user->id,
             'otp' => $otp
         ]);
 
-        // if($otp_data){
-        //     $curl = curl_init();
+        if($otp_data){
+            $curl = curl_init();
 
-        //     curl_setopt_array($curl, array(
-        //     CURLOPT_URL => 'https://api.authkey.io/request?authkey=c9f946d397cec9f1&mobile='.$user->mobile_no.'&country_code=91&sid=9561&company=IOBJE&otp='.$otp,
-        //     CURLOPT_RETURNTRANSFER => true,
-        //     CURLOPT_ENCODING => '',
-        //     CURLOPT_MAXREDIRS => 10,
-        //     CURLOPT_TIMEOUT => 0,
-        //     CURLOPT_FOLLOWLOCATION => true,
-        //     CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-        //     CURLOPT_CUSTOMREQUEST => 'GET',
-        //     ));
+            curl_setopt_array($curl, array(
+            CURLOPT_URL => 'https://api.authkey.io/request?authkey=c9f946d397cec9f1&mobile='.$user->mobile_no.'&country_code=91&sid=9561&company=PEBRR&otp='.$otp,
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => '',
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 0,
+            CURLOPT_FOLLOWLOCATION => true,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => 'GET',
+            ));
 
-        //     $response = curl_exec($curl);
+            $response = curl_exec($curl);
 
-        //     curl_close($curl);
-        // }
+            curl_close($curl);
+        }
 
         return response()->json([
             'success' => true,

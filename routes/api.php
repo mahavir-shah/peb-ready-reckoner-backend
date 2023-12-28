@@ -30,12 +30,10 @@ Route::get('get-designatione', [OtpController::class, 'getdesignation']);
 Route::get('export-estimate/{id}', [EstimateController::class, 'exportEstimate']);
 
 Route::group(['middleware' => ['jwt.verify']], function() {
-
     //logout
     Route::post('logout', [OtpController::class, 'logout']);
 
     //User
-    
     Route::get('get-state-cities', [UserController::class, 'getStateCities']);
     Route::get('get-profile', [UserController::class, 'getProfile']);
     Route::post('update-profile', [UserController::class, 'updateProfile']);

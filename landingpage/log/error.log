@@ -1,0 +1,19 @@
+[Tue Dec 26 11:21:25.253200 2023] [authz_core:error] [pid 17119] [client 128.199.195.68:37414] AH01630: client denied by server configuration: /var/www/html/pebreadyreckoner/landingpage/server-status
+[Tue Dec 26 11:21:31.432464 2023] [authz_core:error] [pid 17139] [client 138.68.133.118:36026] AH01630: client denied by server configuration: /var/www/html/pebreadyreckoner/landingpage/server-status
+[Tue Dec 26 11:50:27.550370 2023] [php7:error] [pid 19050] [client 139.162.61.18:58606] script '/var/www/html/pebreadyreckoner/landingpage/xmlrpc.php' not found or unable to stat
+[Tue Dec 26 16:54:12.621273 2023] [php7:error] [pid 32304] [client 89.208.104.248:61486] script '/var/www/html/pebreadyreckoner/landingpage/wp-login.php' not found or unable to stat
+[Tue Dec 26 17:43:41.341577 2023] [php7:error] [pid 1054] [client 4.145.90.39:64089] script '/var/www/html/pebreadyreckoner/landingpage/xmlrpc.php' not found or unable to stat
+[Tue Dec 26 20:11:14.170191 2023] [php7:error] [pid 7309] [client 4.145.90.39:61880] script '/var/www/html/pebreadyreckoner/landingpage/xmlrpc.php' not found or unable to stat
+[Tue Dec 26 22:49:31.461015 2023] [php7:error] [pid 12327] [client 74.208.2.187:57323] script '/var/www/html/pebreadyreckoner/landingpage/wp-cron.php' not found or unable to stat
+[Tue Dec 26 23:26:22.458874 2023] [php7:error] [pid 14320] [client 176.53.217.213:43259] script '/var/www/html/pebreadyreckoner/landingpage/3ds.php' not found or unable to stat
+[Tue Dec 26 23:26:24.037692 2023] [php7:error] [pid 15875] [client 89.104.101.134:44031] script '/var/www/html/pebreadyreckoner/landingpage/3ds.php' not found or unable to stat
+[Wed Dec 27 02:50:16.109923 2023] [php7:error] [pid 22669] [client 146.190.95.5:51449] script '/var/www/html/pebreadyreckoner/landingpage/xmlrpc.php' not found or unable to stat
+[Wed Dec 27 03:03:01.788100 2023] [php7:error] [pid 22842] [client 92.205.22.178:54079] script '/var/www/html/pebreadyreckoner/landingpage/xmlrpc.php' not found or unable to stat
+[Wed Dec 27 03:26:00.213596 2023] [php7:error] [pid 25151] [client 146.190.95.5:55268] script '/var/www/html/pebreadyreckoner/landingpage/xmlrpc.php' not found or unable to stat
+[Wed Dec 27 03:28:32.705766 2023] [php7:error] [pid 22672] [client 146.190.95.5:49918] script '/var/www/html/pebreadyreckoner/landingpage/xmlrpc.php' not found or unable to stat
+[Wed Dec 27 05:14:34.880707 2023] [php7:error] [pid 28779] [client 103.216.223.204:55388] script '/var/www/html/pebreadyreckoner/landingpage/xmlrpc.php' not found or unable to stat
+[Wed Dec 27 13:35:28.777270 2023] [php7:error] [pid 20038] [client 35.242.182.204:55331] script '/var/www/html/pebreadyreckoner/landingpage/xmlrpc.php' not found or unable to stat
+[Wed Dec 27 13:40:49.428300 2023] [php7:error] [pid 20288] [client 4.145.90.39:63879] script '/var/www/html/pebreadyreckoner/landingpage/xmlrpc.php' not found or unable to stat
+[Wed Dec 27 18:55:08.954611 2023] [php7:error] [pid 31988] [client 143.198.197.88:62611] script '/var/www/html/pebreadyreckoner/landingpage/xmlrpc.php' not found or unable to stat
+[Wed Dec 27 23:23:26.648319 2023] [php7:error] [pid 15824] [client 74.208.2.213:51221] script '/var/www/html/pebreadyreckoner/landingpage/wp-cron.php' not found or unable to stat
+[Thu Dec 28 01:27:21.484615 2023] [php7:error] [pid 19131] [client 103.216.223.204:32840] script '/var/www/html/pebreadyreckoner/landingpage/xmlrpc.php' not found or unable to stat

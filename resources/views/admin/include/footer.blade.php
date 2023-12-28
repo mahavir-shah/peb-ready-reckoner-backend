@@ -132,7 +132,8 @@
 </style>
 </div>
 </div>
-<div id="turn"><p><span><img src="https://hmmngbrd.nyc3.cdn.digitaloceanspaces.com/upload%2Flanding_page%2Fphone-rotate.png" alt=""></span>Please rotate your device to portrait<br>for better experience!</p></div>
+<!-- 
+<div id="turn"><p><span><img src="https://hmmngbrd.nyc3.cdn.digitaloceanspaces.com/upload%2Flanding_page%2Fphone-rotate.png" alt=""></span>Please rotate your device to portrait<br>for better experience!</p></div> -->
 
 <div class="modal fade admin-modal" id="msg-model" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" style="width: 420px;height: 100vh;display: flex;align-items: center;margin-top: 0;" role="document">

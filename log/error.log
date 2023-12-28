@@ -31,3 +31,5 @@
 [Tue Nov 21 19:00:16.345976 2023] [authz_core:error] [pid 4176] [client 139.144.150.23:57432] AH01630: client denied by server configuration: /var/www/html/pebreadyreckoner/public/server-status
 [Tue Nov 21 19:00:20.990792 2023] [authz_core:error] [pid 4216] [client 137.184.150.232:34148] AH01630: client denied by server configuration: /var/www/html/pebreadyreckoner/public/server-status
 [Thu Nov 30 10:19:52.076014 2023] [autoindex:error] [pid 461] [client 122.179.156.23:56970] AH01276: Cannot serve directory /var/www/html/pebreadyreckoner/public/backend/: No matching DirectoryIndex (index.php,index.pl,index.cgi,index.html,index.xhtml,index.htm) found, and server-generated directory index forbidden by Options directive
+[Tue Dec 26 11:26:20.278414 2023] [authz_core:error] [pid 17770] [client 134.122.89.242:58992] AH01630: client denied by server configuration: /var/www/html/pebreadyreckoner/public/server-status
+[Tue Dec 26 11:26:21.096607 2023] [authz_core:error] [pid 17792] [client 139.59.182.142:53994] AH01630: client denied by server configuration: /var/www/html/pebreadyreckoner/public/server-status

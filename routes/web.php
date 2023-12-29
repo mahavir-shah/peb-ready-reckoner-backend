@@ -32,9 +32,9 @@ Route::get('/payment/{plan}/{id}', [PaymentFrontendController::class, 'payment']
 Route::post('/payment-process', [PaymentFrontendController::class, 'paymentProcess'])->name('paymentProcess');
 Route::post('/login-process', [LoginController::class, 'login'])->name('loginProcess');
 Route::get('/add-credit/{aamount}/{id}', [PaymentFrontendController::class, 'addCredit'])->name('addCredit');
-Route::any('cashfree/payments/return', [PaymentFrontendController::class, 'returnUrl'])->name('returnUrl');
-Route::get('/cashfree/payment/success', [PaymentFrontendController::class, 'afterSuccess'])->name('afterSuccess');
-Route::get('/cashfree/payment/cancel', [PaymentFrontendController::class, 'afterCancel'])->name('afterCancel');
+Route::any('credit/payments/return', [PaymentFrontendController::class, 'returnUrl'])->name('returnUrl');
+Route::get('/credit/payment/success', [PaymentFrontendController::class, 'afterSuccess'])->name('afterSuccess');
+Route::get('/credit/payment/cancel', [PaymentFrontendController::class, 'afterCancel'])->name('afterCancel');
 
 Route::group(['middleware' =>['auth']], function () {
 

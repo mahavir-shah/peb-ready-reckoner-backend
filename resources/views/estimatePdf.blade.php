@@ -4,7 +4,7 @@
       <meta name="generator" content="PhpSpreadsheet, https://github.com/PHPOffice/PhpSpreadsheet">
       <meta name="author" content="PRASHAM VORA">
       <meta name="company" content="Microsoft Corporation">
-      <!-- <link href="https://fonts.googleapis.com/css2?family=Fasthand&family=Itim&family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet"> -->
+      
       <!-- <style>
   @import url('https://fonts.googleapis.com/css2?family=Fasthand&family=Itim&family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
 </style> -->
@@ -12,15 +12,15 @@
          html { font-family:Calibri, Arial, Helvetica, sans-serif; font-size:11pt; background-color:white }
          a.comment-indicator:hover + div.comment { background:#ffd; position:absolute; display:block; border:1px solid black; padding:0.5em }
          a.comment-indicator { background:red; display:inline-block; border:1px solid black; width:0.5em; height:0.5em }
-         div.comment { display:none }
-         table { border-collapse:collapse; page-break-after:always }
-         .b { text-align:center }
+         /* div.comment { display:none } */
+         table { border-collapse:collapse; }
+         /* .b { text-align:center }
          .e { text-align:center }
          .f { text-align:right }
          .inlineStr { text-align:left }
          .n { text-align:right }
-         .s { text-align:left }
-         td.style0 { vertical-align:middle; border-bottom:none #000000; border-top:none #000000; border-left:none #000000; border-right:none #000000; color:#000000; font-family:'Calibri'; font-size:11pt; background-color:white }
+         .s { text-align:left } */
+         /* td.style0 { vertical-align:middle; border-bottom:none #000000; border-top:none #000000; border-left:none #000000; border-right:none #000000; color:#000000; font-family:'Calibri'; font-size:11pt; background-color:white }
          th.style0 { vertical-align:middle; border-bottom:none #000000; border-top:none #000000; border-left:none #000000; border-right:none #000000; color:#000000; font-family:'Calibri'; font-size:11pt; background-color:white }
          th.style1 { vertical-align:middle; text-align:center; border-bottom:none #000000; border-top:none #000000; border-left:none #000000; border-right:none #000000; color:#000000; font-family:'Cambria'; font-size:11pt; background-color:white }
          th.style2 { vertical-align:middle; border-bottom:none #000000; border-top:none #000000; border-left:none #000000; border-right:none #000000; color:#000000; font-family:'Cambria'; font-size:11pt; background-color:white }
@@ -58,8 +58,8 @@
          th.style29 { vertical-align:middle; text-align:center; border-bottom:none #000000; border-top:none #000000; border-left:none #000000; border-right:none #000000; color:#000000; font-family:'Cambria'; font-size:11pt; background-color:white }
          th.style30 { vertical-align:middle; text-align:left; padding-left:0px; border-bottom:none #000000; border-top:none #000000; border-left:none #000000; border-right:none #000000; color:#000000; font-family:'Cambria'; font-size:11pt; background-color:white }
          td.style31 { vertical-align:top; text-align:justify; border-bottom:none #000000; border-top:none #000000; border-left:none #000000; border-right:none #000000; color:#000000; font-family:'Cambria'; font-size:11pt; background-color:white }
-         th.style31 { vertical-align:top; text-align:justify; border-bottom:none #000000; border-top:none #000000; border-left:none #000000; border-right:none #000000; color:#000000; font-family:'Cambria'; font-size:11pt; background-color:white }
-         table.sheet0 col.col0 { width:41.34444397pt }
+         th.style31 { vertical-align:top; text-align:justify; border-bottom:none #000000; border-top:none #000000; border-left:none #000000; border-right:none #000000; color:#000000; font-family:'Cambria'; font-size:11pt; background-color:white } */
+         /* table.sheet0 col.col0 { width:41.34444397pt }
          table.sheet0 col.col1 { width:41.34444397pt }
          table.sheet0 col.col2 { width:41.34444397pt }
          table.sheet0 col.col3 { width:16.94444425pt }
@@ -79,13 +79,19 @@
          table.sheet0 tr.row28 { height:20pt }
          table.sheet0 tr.row44 { height:18pt }
          table.sheet0 tr.row82 { height:28.5pt }
-         table.sheet0 tr.row107 { height:18pt }
+         table.sheet0 tr.row107 { height:18pt } */
+         /* @font-face {
+                font-family: 'Itim';
+                src: url('{{ storage_path("fonts/Itim-Regular.ttf") }}') format("truetype");
+                font-weight: 400;
+            } */
+    
       </style>
    </head>
    <body style="
-      margin: 0;
+      margin: 0; font-family: 'examplefont';
       ">
-       <header style="background-color: #206CA5;">
+       <header style="background-color: #206CA5;padding-top: 25px;padding-bottom: 25px;">
             <div style="display: inline-block;width: 100%;text-align: center;background-color: #206CA5;">
                 <div style="display: inline-block;text-align: center;">
                     <img src="{{public_path('/upload/user_company_logo/'.$company_logo)}}" style="width: 56px; height: 51px;" />
@@ -97,12 +103,12 @@
                 </div>
             </div>
         </header>
-      <div style="text-align: right;width: 100%;">
+      <div style="text-align: right;width: 100%; padding-top: 25px;padding-bottom: 25px;">
          <div style="width: 109px;height: 20px;border-radius: 4px;background: rgba(32, 109, 165, 0.10);text-align: center;">
             <p style="color: #206CA5;font-family: Itim;font-size: 16px;font-style: normal;font-weight: 400;line-height: normal;">{{ date('d-m-Y') }}</p>
          </div>
       </div>
-      <table cellpadding="0" cellspacing="0"  style="width: 100%;background: rgba(32, 109, 165, 0.10);">
+      <table cellpadding="0" cellspacing="0"  style="width: 100%;background: rgba(32, 109, 165, 0.10); margin-top: 25px;">
          <!-- <tbody style="width: 100%;"> -->
             <!-- <tr>
                <th style="border: 1px solid #206CA5;text-align: left;padding: 8px;font-size: 18px;">Incharge From company</th>
@@ -113,16 +119,14 @@
             <tr>
                <td style="border: 1px solid #206CA5;text-align: left;padding: 8px;font-size: 18px;color: #2C2C2C;font-family: Itim;font-style: normal;font-weight: 400;line-height: normal;">Incharge From company</td>
                <td style="border: 1px solid #206CA5;text-align: left;padding: 8px; font-size: 18px;color: #206CA5;font-family: Itim;font-style: normal;font-weight: 400;line-height: normal;">{{$name}}</td>
-         
             </tr>
             <tr>
                <td style="border: 1px solid #206CA5;text-align: left;padding: 8px;font-size: 18px;color: #2C2C2C;font-family: Itim;font-style: normal;font-weight: 400;line-height: normal;">Contact Number</td>
                <td style="border: 1px solid #206CA5;text-align: left;padding: 8px; font-size: 18px;color: #206CA5;font-family: Itim;font-style: normal;font-weight: 400;line-height: normal;">{{$mobile_no}}</td>
-               
             </tr>
          <!-- </tbody> -->
       </table>
-         <div>
+         <div style="padding-top: 25px;padding-bottom: 25px;">
             <div style="width: 100%;text-align: center;">
                <h3 style="color: #206CA5;font-family: Itim;font-size: 20px;font-style: normal;font-weight: 400;line-height: normal;">INPUT FOR THE NEW PROJECT</h3>
             </div>
@@ -187,133 +191,148 @@
             </tr>
          </tbody>
       </table>
-      <div>
+      <div style="padding-top: 25px;padding-bottom: 25px;">
          <div style="width: 100%;text-align: center;">
             <h3 style="color: #206CA5;font-family: Itim;font-size: 20px;font-style: normal;font-weight: 400;line-height: normal;">RESULT</h3>
          </div>
       </div>
-      <table style="width: 100%;background: rgba(32, 109, 165, 0.10);">
+      <table style="width: 100%;">
          <tr style="background: #206CA5;">
-            <th style="border: 1px solid #206CA5;color: #FFF;font-family: Itim;font-size: 10px;font-style: normal;font-weight: 400;line-height: normal;">Sr No.</th>
-            <th style="border: 1px solid #206CA5;color: #FFF;font-family: Itim;font-size: 10px;font-style: normal;font-weight: 400;line-height: normal;">Pertculars</th>
-            <th style="border: 1px solid #206CA5;color: #FFF;font-family: Itim;font-size: 10px;font-style: normal;font-weight: 400;line-height: normal;">Consumption</th>
-            <th style="border: 1px solid #206CA5;color: #FFF;font-family: Itim;font-size: 10px;font-style: normal;font-weight: 400;line-height: normal;">Weight</th>
-            <th style="border: 1px solid #206CA5;color: #FFF;font-family: Itim;font-size: 10px;font-style: normal;font-weight: 400;line-height: normal;">Rate</th>
-            <th style="border: 1px solid #206CA5;color: #FFF;font-family: Itim;font-size: 10px;font-style: normal;font-weight: 400;line-height: normal;">Cost</th>
-         </tr>
-         <tr>
-            <td style="border: 1px solid #206CA5;color: #206CA5;font-family: Itim;font-size: 10px;font-style: normal;font-weight: 400;line-height: normal;">(i)</td>
-            <td style="border: 1px solid #206CA5;color: #206CA5;font-family: Itim;font-size: 10px;font-style: normal;font-weight: 400;line-height: normal;">(ii)</td>
-            <td style="border: 1px solid #206CA5;color: #206CA5;font-family: Itim;font-size: 10px;font-style: normal;font-weight: 400;line-height: normal;">(iii)</td>
-            <td style="border: 1px solid #206CA5;color: #206CA5;font-family: Itim;font-size: 10px;font-style: normal;font-weight: 400;line-height: normal;">(iv)</td>
-            <td style="border: 1px solid #206CA5;color: #206CA5;font-family: Itim;font-size: 10px;font-style: normal;font-weight: 400;line-height: normal;">(v)</td>
-            <td style="border: 1px solid #206CA5;color: #206CA5;font-family: Itim;font-size: 10px;font-style: normal;font-weight: 400;line-height: normal;">(vi) = (iv) * (v)</td>
-         </tr>
-         <tr>
-            <td style="border: 1px solid #206CA5;">1</td>
-            <td style="border: 1px solid #206CA5;">Main Frame Steel</td>
-            <td style="border: 1px solid #206CA5;">{{$main_frame_steel_m2}}</td>
-            <td style="border: 1px solid #206CA5;">{{number_format($main_frame_steel_kg)}}</td>
-            <td style="border: 1px solid #206CA5;">{{$main_frame_steel}}</td>
-            <td style="border: 1px solid #206CA5;">{{number_format($main_frame_steel_kg*$main_frame_steel)}}</td>
+            <th style="border: 1px solid #206CA5;color: #FFF;font-family: Itim;font-size: 16px;font-style: normal;font-weight: 400;line-height: normal;padding-top: 10px;padding-bottom: 10px;">Sr No.</th>
+            <th style="border: 1px solid #206CA5;color: #FFF;font-family: Itim;font-size: 16px;font-style: normal;font-weight: 400;line-height: normal;padding-top: 10px;padding-bottom: 10px;">Pertculars</th>
+            <th style="border: 1px solid #206CA5;color: #FFF;font-family: Itim;font-size: 16px;font-style: normal;font-weight: 400;line-height: normal;padding-top: 10px;padding-bottom: 10px;">Consumption</th>
+            <th style="border: 1px solid #206CA5;color: #FFF;font-family: Itim;font-size: 16px;font-style: normal;font-weight: 400;line-height: normal;padding-top: 10px;padding-bottom: 10px;">Weight</th>
+            <th style="border: 1px solid #206CA5;color: #FFF;font-family: Itim;font-size: 16px;font-style: normal;font-weight: 400;line-height: normal;padding-top: 10px;padding-bottom: 10px;">Rate</th>
+            <th style="border: 1px solid #206CA5;color: #FFF;font-family: Itim;font-size: 16px;font-style: normal;font-weight: 400;line-height: normal;padding-top: 10px;padding-bottom: 10px;">Cost</th>
          </tr>
          <tr style="background: #E9F1F6;">
-            <td style="border: 1px solid #206CA5;">2</td>
-            <td style="border: 1px solid #206CA5;">Top Purlin</td>
-            <td style="border: 1px solid #206CA5;">{{$top_purlin_m2}}</td>
-            <td style="border: 1px solid #206CA5;">{{number_format($top_purlin_kg)}}</td>
-            <td style="border: 1px solid #206CA5;">{{$cold_form_purlin}}</td>
-            <td style="border: 1px solid #206CA5;">{{number_format($top_purlin_kg * $cold_form_purlin)}}</td>
+            <td style="border: 1px solid #206CA5;color: #206CA5;font-family: Itim;font-size: 14px;text-align: center;font-style: normal;font-weight: 400;line-height: normal;padding-top: 5px;padding-bottom: 5px;">(i)</td>
+            <td style="border: 1px solid #206CA5;color: #206CA5;font-family: Itim;font-size: 14px;text-align: center;font-style: normal;font-weight: 400;line-height: normal;padding-top: 5px;padding-bottom: 5px;">(ii)</td>
+            <td style="border: 1px solid #206CA5;color: #206CA5;font-family: Itim;font-size: 14px;text-align: center;font-style: normal;font-weight: 400;line-height: normal;padding-top: 5px;padding-bottom: 5px;">(iii)</td>
+            <td style="border: 1px solid #206CA5;color: #206CA5;font-family: Itim;font-size: 14px;text-align: center;font-style: normal;font-weight: 400;line-height: normal;padding-top: 5px;padding-bottom: 5px;">(iv)</td>
+            <td style="border: 1px solid #206CA5;color: #206CA5;font-family: Itim;font-size: 14px;text-align: center;font-style: normal;font-weight: 400;line-height: normal;padding-top: 5px;padding-bottom: 5px;">(v)</td>
+            <td style="border: 1px solid #206CA5;color: #206CA5;font-family: Itim;font-size: 14px;text-align: center;font-style: normal;font-weight: 400;line-height: normal;padding-top: 5px;padding-bottom: 5px;">(vi) = (iv) * (v)</td>
          </tr>
          <tr>
-            <td style="border: 1px solid #206CA5;">3</td>
-            <td style="border: 1px solid #206CA5;">Side Wall Girt</td>
-            <td style="border: 1px solid #206CA5;">{{$side_wall_girt_m2}}</td>
-            <td style="border: 1px solid #206CA5;">{{number_format($side_wall_girt_kg)}}</td>
-            <td style="border: 1px solid #206CA5;">{{$side_wall_girt}}</td>
-            <td style="border: 1px solid #206CA5;">{{number_format($side_wall_girt_kg * $side_wall_girt)}}</td>
+            <td style="border: 1px solid #206CA5;text-align: center;padding: 5px;font-size: 16px;font-family: Itim;">1</td>
+            <td style="border: 1px solid #206CA5;padding: 5px;font-size: 16px;font-family: Itim;">Main Frame Steel</td>
+            <td style="border: 1px solid #206CA5;text-align: center;padding: 5px;font-size: 16px;font-family: Itim;">{{$main_frame_steel_m2}}</td>
+            <td style="border: 1px solid #206CA5;text-align: center;padding: 5px;font-size: 16px;font-family: Itim;">{{number_format($main_frame_steel_kg)}}</td>
+            <td style="border: 1px solid #206CA5;text-align: center;padding: 5px;font-size: 16px;font-family: Itim;">{{$main_frame_steel}}</td>
+            <td style="border: 1px solid #206CA5;text-align: center;padding: 5px;font-size: 16px;font-family: Itim;">{{number_format($main_frame_steel_kg*$main_frame_steel)}}</td>
          </tr>
          <tr style="background: #E9F1F6;">
-            <td style="border: 1px solid #206CA5;">4</td>
-            <td style="border: 1px solid #206CA5;">Gable End girt</td>
-            <td style="border: 1px solid #206CA5;">{{$gable_end_girt_m2}}</td>
-            <td style="border: 1px solid #206CA5;">{{number_format($gable_end_girt_kg)}}</td>
-            <td style="border: 1px solid #206CA5;">{{$gable_end_girt}}</td>
-            <td style="border: 1px solid #206CA5;">{{number_format($gable_end_girt_kg * $gable_end_girt)}}</td>
+            <td style="border: 1px solid #206CA5;text-align: center;padding: 5px;font-size: 16px;font-family: Itim;">2</td>
+            <td style="border: 1px solid #206CA5;padding: 5px;font-size: 16px;font-family: Itim;">Top Purlin</td>
+            <td style="border: 1px solid #206CA5;text-align: center;padding: 5px;font-size: 16px;font-family: Itim;">{{$top_purlin_m2}}</td>
+            <td style="border: 1px solid #206CA5;text-align: center;padding: 5px;font-size: 16px;font-family: Itim;">{{number_format($top_purlin_kg)}}</td>
+            <td style="border: 1px solid #206CA5;text-align: center;padding: 5px;font-size: 16px;font-family: Itim;">{{$cold_form_purlin}}</td>
+            <td style="border: 1px solid #206CA5;text-align: center;padding: 5px;font-size: 16px;font-family: Itim;">{{number_format($top_purlin_kg * $cold_form_purlin)}}</td>
          </tr>
          <tr>
-            <td style="border: 1px solid #206CA5;">5</td>
-            <td style="border: 1px solid #206CA5;">Roofing Sheet</td>
-            <td style="border: 1px solid #206CA5;">{{$roofing_sheet_m2}}</td>
-            <td style="border: 1px solid #206CA5;">{{number_format($roofing_sheet_kg)}}</td>
-            <td style="border: 1px solid #206CA5;">{{$roofing_sheet}}</td>
-            <td style="border: 1px solid #206CA5;">{{number_format($roofing_sheet_kg * $roofing_sheet)}}</td>
+            <td style="border: 1px solid #206CA5;text-align: center;padding: 5px;font-size: 16px;font-family: Itim;">3</td>
+            <td style="border: 1px solid #206CA5;padding: 5px;font-size: 16px;font-family: Itim;">Side Wall Girt</td>
+            <td style="border: 1px solid #206CA5;text-align: center;padding: 5px;font-size: 16px;font-family: Itim;">{{$side_wall_girt_m2}}</td>
+            <td style="border: 1px solid #206CA5;text-align: center;padding: 5px;font-size: 16px;font-family: Itim;">{{number_format($side_wall_girt_kg)}}</td>
+            <td style="border: 1px solid #206CA5;text-align: center;padding: 5px;font-size: 16px;font-family: Itim;">{{$side_wall_girt}}</td>
+            <td style="border: 1px solid #206CA5;text-align: center;padding: 5px;font-size: 16px;font-family: Itim;">{{number_format($side_wall_girt_kg * $side_wall_girt)}}</td>
+         </tr>
+         <tr style="background: #E9F1F6;">
+            <td style="border: 1px solid #206CA5;text-align: center;padding: 5px;font-size: 16px;font-family: Itim;">4</td>
+            <td style="border: 1px solid #206CA5;padding: 5px;font-size: 16px;font-family: Itim;">Gable End girt</td>
+            <td style="border: 1px solid #206CA5;text-align: center;padding: 5px;font-size: 16px;font-family: Itim;">{{$gable_end_girt_m2}}</td>
+            <td style="border: 1px solid #206CA5;text-align: center;padding: 5px;font-size: 16px;font-family: Itim;">{{number_format($gable_end_girt_kg)}}</td>
+            <td style="border: 1px solid #206CA5;text-align: center;padding: 5px;font-size: 16px;font-family: Itim;">{{$gable_end_girt}}</td>
+            <td style="border: 1px solid #206CA5;text-align: center;padding: 5px;font-size: 16px;font-family: Itim;">{{number_format($gable_end_girt_kg * $gable_end_girt)}}</td>
          </tr>
          <tr>
-            <td style="border: 1px solid #206CA5;">6</td>
-            <td style="border: 1px solid #206CA5;">Cladding Sheet</td>
-            <td style="border: 1px solid #206CA5;">{{$clading_sheet_m2}}</td>
-            <td style="border: 1px solid #206CA5;">{{number_format($clading_sheet_kg)}}</td>
-            <td style="border: 1px solid #206CA5;">10</td>
-            <td style="border: 1px solid #206CA5;">51,200</td>
+            <td style="border: 1px solid #206CA5;text-align: center;padding: 5px;font-size: 16px;font-family: Itim;">5</td>
+            <td style="border: 1px solid #206CA5;padding: 5px;font-size: 16px;font-family: Itim;">Roofing Sheet</td>
+            <td style="border: 1px solid #206CA5;text-align: center;padding: 5px;font-size: 16px;font-family: Itim;">{{$roofing_sheet_m2}}</td>
+            <td style="border: 1px solid #206CA5;text-align: center;padding: 5px;font-size: 16px;font-family: Itim;">{{number_format($roofing_sheet_kg)}}</td>
+            <td style="border: 1px solid #206CA5;text-align: center;padding: 5px;font-size: 16px;font-family: Itim;">{{$roofing_sheet}}</td>
+            <td style="border: 1px solid #206CA5;text-align: center;padding: 5px;font-size: 16px;font-family: Itim;">{{number_format($roofing_sheet_kg * $roofing_sheet)}}</td>
+         </tr>
+         <tr style="background: #E9F1F6;">
+            <td style="border: 1px solid #206CA5;text-align: center;padding: 5px;font-size: 16px;font-family: Itim;">6</td>
+            <td style="border: 1px solid #206CA5;padding: 5px;font-size: 16px;font-family: Itim;">Cladding Sheet</td>
+            <td style="border: 1px solid #206CA5;text-align: center;padding: 5px;font-size: 16px;font-family: Itim;">{{$clading_sheet_m2}}</td>
+            <td style="border: 1px solid #206CA5;text-align: center;padding: 5px;font-size: 16px;font-family: Itim;">{{number_format($clading_sheet_kg)}}</td>
+            <td style="border: 1px solid #206CA5;text-align: center;padding: 5px;font-size: 16px;font-family: Itim;">{{$side_cladding_sheet}}</td>
+            <td style="border: 1px solid #206CA5;text-align: center;padding: 5px;font-size: 16px;font-family: Itim;">{{number_format($clading_sheet_kg * $side_cladding_sheet)}}</td>
          </tr>
          <tr>
-            <td style="border: 1px solid #206CA5;">7</td>
-            <td style="border: 1px solid #206CA5;">Sag Rod</td>
-            <td style="border: 1px solid #206CA5;">6.95</td>
-            <td style="border: 1px solid #206CA5;">5,120</td>
-            <td style="border: 1px solid #206CA5;">10</td>
-            <td style="border: 1px solid #206CA5;">51,200</td>
+            <td style="border: 1px solid #206CA5;text-align: center;padding: 5px;font-size: 16px;font-family: Itim;">7</td>
+            <td style="border: 1px solid #206CA5;padding: 5px;font-size: 16px;font-family: Itim;">Sag Rod</td>
+            <td style="border: 1px solid #206CA5;text-align: center;padding: 5px;font-size: 16px;font-family: Itim;">{{$sag_rod_m2}}</td>
+            <td style="border: 1px solid #206CA5;text-align: center;padding: 5px;font-size: 16px;font-family: Itim;">{{number_format($sag_rod_kg)}}</td>
+            <td style="border: 1px solid #206CA5;text-align: center;padding: 5px;font-size: 16px;font-family: Itim;">{{$sag_rod}}</td>
+            <td style="border: 1px solid #206CA5;text-align: center;padding: 5px;font-size: 16px;font-family: Itim;">{{number_format($sag_rod_kg * $sag_rod)}}</td>
+         </tr>
+         <tr style="background: #E9F1F6;">
+            <td style="border: 1px solid #206CA5;text-align: center;padding: 5px;font-size: 16px;font-family: Itim;">8</td>
+            <td style="border: 1px solid #206CA5;padding: 5px;font-size: 16px;font-family: Itim;">Flange Brace</td>
+            <td style="border: 1px solid #206CA5;text-align: center;padding: 5px;font-size: 16px;font-family: Itim;">{{$stay_brace_m2}}</td>
+            <td style="border: 1px solid #206CA5;text-align: center;padding: 5px;font-size: 16px;font-family: Itim;">{{number_format($stay_brace_kg)}}</td>
+            <td style="border: 1px solid #206CA5;text-align: center;padding: 5px;font-size: 16px;font-family: Itim;">{{$cold_form_stay_brace}}</td>
+            <td style="border: 1px solid #206CA5;text-align: center;padding: 5px;font-size: 16px;font-family: Itim;">{{number_format($stay_brace_kg * $cold_form_stay_brace)}}</td>
          </tr>
          <tr>
-            <td style="border: 1px solid #206CA5;">8</td>
-            <td style="border: 1px solid #206CA5;">Flange Brace</td>
-            <td style="border: 1px solid #206CA5;">6.95</td>
-            <td style="border: 1px solid #206CA5;">5,120</td>
-            <td style="border: 1px solid #206CA5;">10</td>
-            <td style="border: 1px solid #206CA5;">51,200</td>
+            <td style="border: 1px solid #206CA5;text-align: center;padding: 5px;font-size: 16px;font-family: Itim;">9</td>
+            <td style="border: 1px solid #206CA5;padding: 5px;font-size: 16px;font-family: Itim;">Anchor Bolt</td>
+            <td style="border: 1px solid #206CA5;text-align: center;padding: 5px;font-size: 16px;font-family: Itim;">{{$anchor_bolt_m2}}</td>
+            <td style="border: 1px solid #206CA5;text-align: center;padding: 5px;font-size: 16px;font-family: Itim;">{{number_format($anchor_bolt_kg)}}</td>
+            <td style="border: 1px solid #206CA5;text-align: center;padding: 5px;font-size: 16px;font-family: Itim;">{{$anchor_bolt}}</td>
+            <td style="border: 1px solid #206CA5;text-align: center;padding: 5px;font-size: 16px;font-family: Itim;">{{number_format($anchor_bolt_kg * $anchor_bolt)}}</td>
+         </tr>
+         <tr style="background: #E9F1F6;">
+            <td style="border: 1px solid #206CA5;text-align: center;padding: 5px;font-size: 16px;font-family: Itim;">10</td>
+            <td style="border: 1px solid #206CA5;padding: 5px;font-size: 16px;font-family: Itim;">Purli/Girt cleat</td>
+            <td style="border: 1px solid #206CA5;text-align: center;padding: 5px;font-size: 16px;font-family: Itim;">{{$cleat_m2}}</td>
+            <td style="border: 1px solid #206CA5;text-align: center;padding: 5px;font-size: 16px;font-family: Itim;">{{number_format($cleat_kg)}}</td>
+            <td style="border: 1px solid #206CA5;text-align: center;padding: 5px;font-size: 16px;font-family: Itim;">{{$cleat}}</td>
+            <td style="border: 1px solid #206CA5;text-align: center;padding: 5px;font-size: 16px;font-family: Itim;">{{number_format($cleat_kg * $cleat)}}</td>
          </tr>
          <tr>
-            <td style="border: 1px solid #206CA5;">9</td>
-            <td style="border: 1px solid #206CA5;">Anchor Bolt</td>
-            <td style="border: 1px solid #206CA5;">6.95</td>
-            <td style="border: 1px solid #206CA5;">5,120</td>
-            <td style="border: 1px solid #206CA5;">10</td>
-            <td style="border: 1px solid #206CA5;">51,200</td>
+            <td style="border: 1px solid #206CA5;text-align: center;padding: 5px;font-size: 16px;font-family: Itim;">11</td>
+            <td style="border: 1px solid #206CA5;padding: 5px;font-size: 16px;font-family: Itim;">X-Bracing</td>
+            <td style="border: 1px solid #206CA5;text-align: center;padding: 5px;font-size: 16px;font-family: Itim;">{{$x_bracing_m2}}</td>
+            <td style="border: 1px solid #206CA5;text-align: center;padding: 5px;font-size: 16px;font-family: Itim;">{{number_format($x_bracing_kg)}}</td>
+            <td style="border: 1px solid #206CA5;text-align: center;padding: 5px;font-size: 16px;font-family: Itim;">{{$x_bracing}}</td>
+            <td style="border: 1px solid #206CA5;text-align: center;padding: 5px;font-size: 16px;font-family: Itim;">{{number_format($x_bracing_kg * $x_bracing)}}</td>
+         </tr>
+         <tr style="background: #E9F1F6;">
+            <td style="border: 1px solid #206CA5;text-align: center;padding: 5px;font-size: 16px;font-family: Itim;">12</td>
+            <td style="border: 1px solid #206CA5;padding: 5px;font-size: 16px;font-family: Itim;">Finishing</td>
+            <td style="border: 1px solid #206CA5;text-align: center;padding: 5px;font-size: 16px;font-family: Itim;">{{$finishing_m2}}</td>
+            <td style="border: 1px solid #206CA5;text-align: center;padding: 5px;font-size: 16px;font-family: Itim;">{{number_format($finishing_kg)}}</td>
+            <td style="border: 1px solid #206CA5;text-align: center;padding: 5px;font-size: 16px;font-family: Itim;">{{$finishing}}</td>
+            <td style="border: 1px solid #206CA5;text-align: center;padding: 5px;font-size: 16px;font-family: Itim;">{{number_format($finishing_kg * $finishing)}}</td>
          </tr>
          <tr>
-            <td style="border: 1px solid #206CA5;">10</td>
-            <td style="border: 1px solid #206CA5;">Purli/Girt cleat </td>
-            <td style="border: 1px solid #206CA5;">6.95</td>
-            <td style="border: 1px solid #206CA5;">5,120</td>
-            <td style="border: 1px solid #206CA5;">10</td>
-            <td style="border: 1px solid #206CA5;">51,200</td>
+            <td style="border: 1px solid #206CA5;text-align: center;padding: 5px;font-size: 16px;font-family: Itim;">13</td>
+            <td style="border: 1px solid #206CA5;padding: 5px;font-size: 16px;font-family: Itim;">Tie Strut</td>
+            <td style="border: 1px solid #206CA5;text-align: center;padding: 5px;font-size: 16px;font-family: Itim;">{{$tie_strut_m2}}</td>
+            <td style="border: 1px solid #206CA5;text-align: center;padding: 5px;font-size: 16px;font-family: Itim;">{{number_format($tie_strut_kg)}}</td>
+            <td style="border: 1px solid #206CA5;text-align: center;padding: 5px;font-size: 16px;font-family: Itim;">{{$tie_beam}}</td>
+            <td style="border: 1px solid #206CA5;text-align: center;padding: 5px;font-size: 16px;font-family: Itim;">{{number_format($tie_strut_kg * $tie_beam)}}</td>
          </tr>
-         <tr>
-            <td style="border: 1px solid #206CA5;">11</td>
-            <td style="border: 1px solid #206CA5;">X-Bracing</td>
-            <td style="border: 1px solid #206CA5;">6.95</td>
-            <td style="border: 1px solid #206CA5;">5,120</td>
-            <td style="border: 1px solid #206CA5;">10</td>
-            <td style="border: 1px solid #206CA5;">51,200</td>
-         </tr>
-         <tr>
-            <td style="border: 1px solid #206CA5;">12</td>
-            <td style="border: 1px solid #206CA5;">Finishing</td>
-            <td style="border: 1px solid #206CA5;">6.95</td>
-            <td style="border: 1px solid #206CA5;">5,120</td>
-            <td style="border: 1px solid #206CA5;">10</td>
-            <td style="border: 1px solid #206CA5;">51,200</td>
-         </tr>
-         <tr>
-            <td style="border: 1px solid #206CA5;">13</td>
-            <td style="border: 1px solid #206CA5;">Tie Strut</td>
-            <td style="border: 1px solid #206CA5;">6.95</td>
-            <td style="border: 1px solid #206CA5;">5,120</td>
-            <td style="border: 1px solid #206CA5;">10</td>
-            <td style="border: 1px solid #206CA5;">51,200</td>
+         <tr style="background: #206CA5;">
+            <td style="color: #FFF;font-family: Itim;font-size: 16px;font-style: normal;font-weight: 400;line-height: normal;text-align: center;padding-top: 10px;padding-bottom: 10px;">Total</td>
+            <td style="color: #FFF;font-family: Itim;font-size: 16px;font-style: normal;font-weight: 400;line-height: normal;padding-top: 10px;padding-bottom: 10px;"></td>
+            <td style="text-align: center;color: #FFF;font-family: Itim;font-size: 16px;font-style: normal;font-weight: 400;line-height: normal;padding-top: 10px;padding-bottom: 10px;">{{$total_quantity_m2}}</td>
+            <td style="text-align: center;color: #FFF;font-family: Itim;font-size: 16px;font-style: normal;font-weight: 400;line-height: normal;padding-top: 10px;padding-bottom: 10px;">{{number_format($atotal_quantity_kg)}}</td>
+            <td style=""></td>
+            <!-- <td style="">{{--$tie_beam + $finishing + $x_bracing + $cleat + $anchor_bolt + $cold_form_stay_brace + $sag_rod + $side_cladding_sheet + $roofing_sheet + $gable_end_girt + $side_wall_girt + $cold_form_purlin + $main_frame_steel--}}</td> -->
+            <td style="text-align: center;color: #FFF;font-family: Itim;font-size: 16px;font-style: normal;font-weight: 400;line-height: normal;padding-top: 10px;padding-bottom: 10px;">{{number_format(($tie_strut_kg * $tie_beam) + ($finishing_kg * $finishing) + ($x_bracing_kg * $x_bracing) + ($cleat_kg * $cleat) + ($anchor_bolt_kg * $anchor_bolt) + ($stay_brace_kg * $cold_form_stay_brace) + ($sag_rod_kg * $sag_rod) + ($clading_sheet_kg * $side_cladding_sheet) + ($roofing_sheet_kg * $roofing_sheet) + ($gable_end_girt_kg * $gable_end_girt) + ($side_wall_girt_kg * $side_wall_girt) + ($top_purlin_kg * $cold_form_purlin) + ($main_frame_steel_kg*$main_frame_steel))}}</td>
+            
          </tr>
          </table>
+         <div style="padding-top: 25px;padding-bottom: 25px;   ">
+            <div style="width: 100%;text-align: center;">
+               <h3 style="color: #206CA5;font-family: Itim;font-size: 20px;font-style: normal;font-weight: 400;line-height: normal;">CONSIDERATION FOR THE QUOTATION</h3>
+            </div>
+         </div>
       <table border="0" cellpadding="0" cellspacing="0" id="sheet0" class="sheet0 gridlines" style="
          width: 100%; margin-left:30px;
          ">
@@ -322,386 +341,7 @@
             width: 100%;
             ">
           
-            <tr class="row25">
-               <td class="column0 style11 s style11" colspan="15" style="
-                  vertical-align: middle;text-align: center;color: #000000;font-family: 'Cambria';font-size: 11pt; border: 1px solid #000000 !important;
-                  ">RESULT</td>
-               <td class="column8">&nbsp;</td>
-               <td class="column9">&nbsp;</td>
-            </tr>
-            <tr class="row26">
-               <td class="column0 style17 s style17"colspan="1" rowspan="2" style="
-                  vertical-align: top;text-align: center;font-weight: bold;color: #000000; font-family: 'Cambria';font-size: 10pt;border: 1px solid #000000 !important;
-                  ">Sr No</td>
-               <td class="column1 style17 s style17" colspan="2" rowspan="2" style="
-                  vertical-align: top;text-align: center;font-weight: bold;color: #000000; font-family: 'Cambria';font-size: 10pt;border: 1px solid #000000 !important;
-                  ">Pertculars</td>
-               <td class="column4 style18 s "colspan="2" style="
-                  vertical-align: middle;text-align: center;font-weight: bold;color: #000000; font-family: 'Cambria';font-size: 10pt;border: 1px solid #000000 !important;
-                  ">Consumption</td>
-               <td class="column5 style18 s style18" colspan="2" style="
-                  vertical-align: middle;text-align: center;font-weight: bold;color: #000000; font-family: 'Cambria';font-size: 10pt;border: 1px solid #000000 !important;
-                  ">Weight</td>
-               <td class="column7 style19 s" colspan="2">Rate</td>
-               <td class="column8 style18 s style18" colspan="6" style="
-                  vertical-align: middle;text-align: center;font-weight: bold;color: #000000; font-family: 'Cambria';font-size: 10pt;border: 1px solid #000000 !important;
-                  ">Cost</td>
-               <td class="column8">&nbsp;</td>
-               <td class="column9">&nbsp;</td>
-            </tr>
-            <tr class="row27">
-               <td class="column4 style18 s"colspan="2" style="
-                  vertical-align: middle;text-align: center;font-weight: bold;color: #000000; font-family: 'Cambria';font-size: 11pt;border: 1px solid #000000 !important;
-                  ">kg/m^2</td>
-               <td class="column5 style18 s style18" colspan="2" style="
-                  vertical-align: middle; text-align: center; font-weight: bold; color: #000000; font-family: 'Cambria';font-size: 11pt;border: 1px solid #000000 !important;
-                  ">kg</td>
-               <td class="column7 style19 s "colspan="2">INR/kg</td>
-               <td class="column8 style18 s style18" colspan="6" style="
-                  vertical-align: middle;text-align: center;font-weight: bold;color: #000000; font-family: 'Cambria';font-size: 11pt;border: 1px solid #000000 !important;
-                  ">INR</td>
-               <td class="column8">&nbsp;</td>
-               <td class="column9">&nbsp;</td>
-            </tr>
-            <tr class="row28">
-               <td class="column0 style18 s" style="border: 1px solid #000; text-align:center; font-weight:bold;">(i)</td>
-               <td class="column1 style18 s style18" colspan="2" style="text-align:center; font-weight:bold;">(ii)</td>
-               <td class="column4 style18 s"colspan="2" style="
-                  vertical-align: middle;text-align: center;font-weight: bold;color: #000000; font-family: 'Cambria';font-size: 11pt;border: 1px solid #000000 !important;
-                  ">(iii)</td>
-               <td class="column5 style18 s style18" colspan="2" style="
-                  vertical-align: middle;text-align: center;font-weight: bold;color: #000000; font-family: 'Cambria';font-size: 11pt;border: 1px solid #000000 !important;
-                  ">(iv)</td>
-               <td class="column7 style18 s" colspan="2" style="font-weight:bold;">(v)</td>
-               <td class="column8 style18 s style18" colspan="6" style="
-                  vertical-align: middle;text-align: center;font-weight: bold;color: #000000; font-family: 'Cambria';font-size: 11pt;border: 1px solid #000000 !important;
-                  ">(vi) = (iv) * (v)</td>
-               <td class="column8">&nbsp;</td>
-               <td class="column9">&nbsp;</td>
-            </tr>
-            <tr class="row29">
-               <td class="column0 style20 n">1</td>
-               <td class="column1 style16 s style16" colspan="2" style="
-                  vertical-align: middle;text-align: center;color: #000000; font-family: 'Cambria';font-size: 11pt;border: 1px solid #000000 !important;width: 30%;
-                  ">Main Frame Steel</td>
-               <td class="column4 style21 null" colspan="2" style="
-                  vertical-align: middle; text-align: center;  text-align: center;color: #000000;font-family: 'Cambria';font-size: 11pt; border: 1px solid #000000 !important;
-                  ">{{$main_frame_steel_m2}}</td>
-               <td class="column5 style22 null style22" colspan="2" style="
-                  vertical-align: middle;text-align: center;color: #000000;font-family: 'Cambria';font-size: 11pt; border: 1px solid #000000 !important;
-                  ">{{number_format($main_frame_steel_kg)}}</td>
-               <td class="column7 style21 null"colspan="2" style="
-                  vertical-align: middle;    color: #000000;font-family: 'Cambria';font-size: 11pt; border: 1px solid #000000 !important;
-                  ">{{$main_frame_steel}}</td>
-               <td class="column8 style22 null style22" colspan="6" style="
-                  vertical-align: middle;text-align: center;color: #000000;font-family: 'Cambria';font-size: 11pt; border: 1px solid #000000 !important;
-                  ">{{number_format($main_frame_steel_kg*$main_frame_steel)}}</td>
-               <td class="column8">&nbsp;</td>
-               <td class="column9">&nbsp;</td>
-            </tr>
-            <tr class="row30">
-               <td class="column0 style20 n">2</td>
-               <td class="column1 style16 s style16" colspan="2" style="
-                  vertical-align: middle;text-align: center;color: #000000; font-family: 'Cambria';font-size: 11pt;border: 1px solid #000000 !important;
-                  ">Top Purlin</td>
-               <td class="column4 style21 null"colspan="2" style="
-                  vertical-align: middle; text-align: center;     color: #000000;font-family: 'Cambria';font-size: 11pt; border: 1px solid #000000 !important;
-                  ">{{$top_purlin_m2}}</td>
-               <td class="column5 style22 null style22" colspan="2" style="
-                  vertical-align: middle;text-align: center;color: #000000;font-family: 'Cambria';font-size: 11pt; border: 1px solid #000000 !important;
-                  ">{{number_format($top_purlin_kg)}}</td>
-               <td class="column7 style21 null" colspan="2"style="
-                  vertical-align: middle;    color: #000000;font-family: 'Cambria';font-size: 11pt; border: 1px solid #000000 !important;
-                  ">{{$cold_form_purlin}}</td>
-               <td class="column8 style22 null style22" colspan="6" style="
-                  vertical-align: middle;text-align: center;color: #000000;font-family: 'Cambria';font-size: 11pt; border: 1px solid #000000 !important;
-                  ">{{number_format($top_purlin_kg * $cold_form_purlin)}}</td>
-               <td class="column8">&nbsp;</td>
-               <td class="column9">&nbsp;</td>
-            </tr>
-            <tr class="row31">
-               <td class="column0 style20 n">3</td>
-               <td class="column1 style16 s style16" colspan="2" style="
-                  vertical-align: middle;text-align: center;color: #000000; font-family: 'Cambria';font-size: 11pt;border: 1px solid #000000 !important;
-                  ">Side Wall Girt</td>
-               <td class="column4 style21 null" colspan="2" style="
-                  vertical-align: middle; text-align: center;     color: #000000;font-family: 'Cambria';font-size: 11pt; border: 1px solid #000000 !important;
-                  ">{{$side_wall_girt_m2}}</td>
-               <td class="column5 style22 null style22" colspan="2" style="
-                  vertical-align: middle;text-align: center;color: #000000;font-family: 'Cambria';font-size: 11pt; border: 1px solid #000000 !important;
-                  ">{{number_format($side_wall_girt_kg)}}</td>
-               <td class="column7 style21 null" colspan="2" style="
-                  vertical-align: middle;    color: #000000;font-family: 'Cambria';font-size: 11pt; border: 1px solid #000000 !important;
-                  ">{{$side_wall_girt}}</td>
-               <td class="column8 style22 null style22" colspan="6" style="
-                  vertical-align: middle;text-align: center;color: #000000;font-family: 'Cambria';font-size: 11pt; border: 1px solid #000000 !important;
-                  ">{{number_format($side_wall_girt_kg * $side_wall_girt)}}</td>
-               <td class="column8">&nbsp;</td>
-               <td class="column9">&nbsp;</td>
-            </tr>
-            <tr class="row32">
-               <td class="column0 style20 n">4</td>
-               <td class="column1 style16 s style16" colspan="2" style="
-                  vertical-align: middle;text-align: center;color: #000000; font-family: 'Cambria';font-size: 11pt;border: 1px solid #000000 !important;
-                  ">Gable End girt</td>
-               <td class="column4 style21 null" colspan="2" style="
-                  vertical-align: middle; text-align: center;     color: #000000;font-family: 'Cambria';font-size: 11pt; border: 1px solid #000000 !important;
-                  ">{{$gable_end_girt_m2}}</td>
-               <td class="column5 style22 null style22" colspan="2" style="
-                  vertical-align: middle;text-align: center;color: #000000;font-family: 'Cambria';font-size: 11pt; border: 1px solid #000000 !important;
-                  ">{{number_format($gable_end_girt_kg)}}</td>
-               <td class="column7 style21 null" colspan="2" style="
-                  vertical-align: middle;    color: #000000;font-family: 'Cambria';font-size: 11pt; border: 1px solid #000000 !important;
-                  ">{{$gable_end_girt}}</td>
-               <td class="column8 style22 null style22" colspan="6" style="
-                  vertical-align: middle;text-align: center;color: #000000;font-family: 'Cambria';font-size: 11pt; border: 1px solid #000000 !important;
-                  ">{{number_format($gable_end_girt_kg * $gable_end_girt)}}</td>
-               <td class="column8">&nbsp;</td>
-               <td class="column9">&nbsp;</td>
-            </tr>
-            <tr class="row33">
-               <td class="column0 style20 n">5</td>
-               <td class="column1 style16 s style16" colspan="2" style="
-                  vertical-align: middle;text-align: center;color: #000000; font-family: 'Cambria';font-size: 11pt;border: 1px solid #000000 !important;
-                  ">Roofing Sheet</td>
-               <td class="column4 style21 null" colspan="2" style="
-                  vertical-align: middle; text-align: center;     color: #000000;font-family: 'Cambria';font-size: 11pt; border: 1px solid #000000 !important;
-                  ">{{$roofing_sheet_m2}}</td>
-               <td class="column5 style22 null style22" colspan="2" style="
-                  vertical-align: middle;text-align: center;color: #000000;font-family: 'Cambria';font-size: 11pt; border: 1px solid #000000 !important;
-                  ">{{number_format($roofing_sheet_kg)}}</td>
-               <td class="column7 style21 null" colspan="2" style="
-                  vertical-align: middle;    color: #000000;font-family: 'Cambria';font-size: 11pt; border: 1px solid #000000 !important;
-                  ">{{$roofing_sheet}}</td>
-               <td class="column8 style22 null style22" colspan="6" style="
-                  vertical-align: middle;text-align: center;color: #000000;font-family: 'Cambria';font-size: 11pt; border: 1px solid #000000 !important;
-                  ">{{number_format($roofing_sheet_kg * $roofing_sheet)}}</td>
-               <td class="column8">&nbsp;</td>
-               <td class="column9">&nbsp;</td>
-            </tr>
-            <tr class="row34">
-               <td class="column0 style20 n">6</td>
-               <td class="column1 style16 s style16" colspan="2" style="
-                  vertical-align: middle; text-align: center; color: #000000; font-family: 'Cambria';font-size: 11pt;border: 1px solid #000000 !important;
-                  ">Cladding Sheet</td>
-               <td class="column4 style21 null" colspan="2" style="
-                  vertical-align: middle; text-align: center; color: #000000;font-family: 'Cambria';font-size: 11pt; border: 1px solid #000000 !important;
-                  ">{{$clading_sheet_m2}}</td>
-               <td class="column5 style22 null style22" colspan="2" style="
-                  vertical-align: middle;text-align: center;color: #000000;font-family: 'Cambria';font-size: 11pt; border: 1px solid #000000 !important;
-                  ">{{number_format($clading_sheet_kg)}}</td>
-               <td class="column7 style21 null" colspan="2" style="
-                  vertical-align: middle;    color: #000000;font-family: 'Cambria';font-size: 11pt; border: 1px solid #000000 !important;
-                  ">{{$side_cladding_sheet}}</td>
-               <td class="column8 style22 null style22" colspan="6" style="
-                  vertical-align: middle;text-align: center;color: #000000;font-family: 'Cambria';font-size: 11pt; border: 1px solid #000000 !important;
-                  ">{{number_format($clading_sheet_kg * $side_cladding_sheet)}} </td>
-               <td class="column8">&nbsp;</td>
-               <td class="column9">&nbsp;</td>
-            </tr>
-            <tr class="row35">
-               <td class="column0 style20 n">7</td>
-               <td class="column1 style16 s style16" colspan="2" style="
-                  vertical-align: middle;text-align: center;color: #000000; font-family: 'Cambria';font-size: 11pt;border: 1px solid #000000 !important;
-                  ">Sag Rod</td>
-               <td class="column4 style21 null" colspan="2" style="
-                  vertical-align: middle;  text-align: center;    color: #000000;font-family: 'Cambria';font-size: 11pt; border: 1px solid #000000 !important;
-                  ">{{$sag_rod_m2}}</td>
-               <td class="column5 style22 null style22" colspan="2" style="
-                  vertical-align: middle;text-align: center;color: #000000;font-family: 'Cambria';font-size: 11pt; border: 1px solid #000000 !important;
-                  ">{{number_format($sag_rod_kg)}}</td>
-               <td class="column7 style21 null" colspan="2" style="
-                  vertical-align: middle;    color: #000000;font-family: 'Cambria';font-size: 11pt; border: 1px solid #000000 !important;
-                  ">{{$sag_rod}}</td>
-               <td class="column8 style22 null style22" colspan="6" style="
-                  vertical-align: middle;text-align: center;color: #000000;font-family: 'Cambria';font-size: 11pt; border: 1px solid #000000 !important;
-                  ">{{number_format($sag_rod_kg * $sag_rod)}}</td>
-               <td class="column8">&nbsp;</td>
-               <td class="column9">&nbsp;</td>
-            </tr>
-            <tr class="row36">
-               <td class="column0 style20 n">8</td>
-               <td class="column1 style16 s style16" colspan="2" style="
-                  vertical-align: middle;text-align: center;color: #000000; font-family: 'Cambria';font-size: 11pt;border: 1px solid #000000 !important;
-                  ">Flange Brace</td>
-               <td class="column4 style21 null" colspan="2" style="
-                  vertical-align: middle;  text-align: center;    color: #000000;font-family: 'Cambria';font-size: 11pt; border: 1px solid #000000 !important;
-                  ">{{$stay_brace_m2}}</td>
-               <td class="column5 style22 null style22" colspan="2" style="
-                  vertical-align: middle;text-align: center;color: #000000;font-family: 'Cambria';font-size: 11pt; border: 1px solid #000000 !important;
-                  ">{{number_format($stay_brace_kg)}}</td>
-               <td class="column7 style21 null" colspan="2" style="
-                  vertical-align: middle;    color: #000000;font-family: 'Cambria';font-size: 11pt; border: 1px solid #000000 !important;
-                  ">{{$cold_form_stay_brace}}</td>
-               <td class="column8 style22 null style22" colspan="6" style="
-                  vertical-align: middle;text-align: center;color: #000000;font-family: 'Cambria';font-size: 11pt; border: 1px solid #000000 !important;
-                  ">{{number_format($stay_brace_kg * $cold_form_stay_brace)}}</td>
-               <td class="column8">&nbsp;</td>
-               <td class="column9">&nbsp;</td>
-            </tr>
-            <tr class="row37">
-               <td class="column0 style20 n">9</td>
-               <td class="column1 style16 s style16" colspan="2" style="
-                  vertical-align: middle;text-align: center;color: #000000; font-family: 'Cambria';font-size: 11pt;border: 1px solid #000000 !important;
-                  ">Anchor Bolt</td>
-               <td class="column4 style21 null" colspan="2" style="
-                  vertical-align: middle;  text-align: center;    color: #000000;font-family: 'Cambria';font-size: 11pt; border: 1px solid #000000 !important;
-                  ">{{$anchor_bolt_m2}}</td>
-               <td class="column5 style22 null style22" colspan="2" style="
-                  vertical-align: middle;text-align: center;color: #000000;font-family: 'Cambria';font-size: 11pt; border: 1px solid #000000 !important;
-                  ">{{number_format($anchor_bolt_kg)}}</td>
-               <td class="column7 style21 null" colspan="2" style="
-                  vertical-align: middle;    color: #000000;font-family: 'Cambria';font-size: 11pt; border: 1px solid #000000 !important;
-                  ">{{$anchor_bolt}}</td>
-               <td class="column8 style22 null style22" colspan="6" style="
-                  vertical-align: middle;text-align: center;color: #000000;font-family: 'Cambria';font-size: 11pt; border: 1px solid #000000 !important;
-                  ">{{number_format($anchor_bolt_kg * $anchor_bolt)}}</td>
-               <td class="column8">&nbsp;</td>
-               <td class="column9">&nbsp;</td>
-            </tr>
-            <tr class="row38">
-               <td class="column0 style20 n">10</td>
-               <td class="column1 style16 s style16" colspan="2" style="
-                  vertical-align: middle;text-align: center;color: #000000; font-family: 'Cambria';font-size: 11pt;border: 1px solid #000000 !important;
-                  ">Purli/Girt cleat</td>
-               <td class="column4 style21 null" colspan="2" style="
-                  vertical-align: middle;  text-align: center;    color: #000000;font-family: 'Cambria';font-size: 11pt; border: 1px solid #000000 !important;
-                  ">{{$cleat_m2}}</td>
-               <td class="column5 style22 null style22" colspan="2" style="
-                  vertical-align: middle;text-align: center;color: #000000;font-family: 'Cambria';font-size: 11pt; border: 1px solid #000000 !important;
-                  ">{{number_format($cleat_kg)}}</td>
-               <td class="column7 style21 null" colspan="2" style="
-                  vertical-align: middle;    color: #000000;font-family: 'Cambria';font-size: 11pt; border: 1px solid #000000 !important;
-                  ">{{$cleat}}</td>
-               <td class="column8 style22 null style22" colspan="6" style="
-                  vertical-align: middle;text-align: center;color: #000000;font-family: 'Cambria';font-size: 11pt; border: 1px solid #000000 !important;
-                  ">{{number_format($cleat_kg * $cleat)}}</td>
-               <td class="column8">&nbsp;</td>
-               <td class="column9">&nbsp;</td>
-            </tr>
-            <tr class="row39">
-               <td class="column0 style20 n">11</td>
-               <td class="column1 style16 s style16" colspan="2" style="
-                  vertical-align: middle;text-align: center;color: #000000; font-family: 'Cambria';font-size: 11pt;border: 1px solid #000000 !important;
-                  ">X-Bracing</td>
-               <td class="column4 style21 null" colspan="2" style="
-                  vertical-align: middle;  text-align: center;    color: #000000;font-family: 'Cambria';font-size: 11pt; border: 1px solid #000000 !important;
-                  ">{{$x_bracing_m2}}</td>
-               <td class="column5 style22 null style22" colspan="2" style="
-                  vertical-align: middle;text-align: center;color: #000000;font-family: 'Cambria';font-size: 11pt; border: 1px solid #000000 !important;
-                  ">{{number_format($x_bracing_kg)}}</td>
-               <td class="column7 style21 null" colspan="2" style="
-                  vertical-align: middle;    color: #000000;font-family: 'Cambria';font-size: 11pt; border: 1px solid #000000 !important;
-                  ">{{$x_bracing}}</td>
-               <td class="column8 style22 null style22" colspan="6" style="
-                  vertical-align: middle;text-align: center;color: #000000;font-family: 'Cambria';font-size: 11pt; border: 1px solid #000000 !important;
-                  ">{{number_format($x_bracing_kg * $x_bracing)}}</td>
-               <td class="column8">&nbsp;</td>
-               <td class="column9">&nbsp;</td>
-            </tr>
-            <tr class="row40">
-               <td class="column0 style20 n">12</td>
-               <td class="column1 style16 s style16" colspan="2" style="
-                  vertical-align: middle;text-align: center;color: #000000; font-family: 'Cambria';font-size: 11pt;border: 1px solid #000000 !important;
-                  ">Finishing</td>
-               <td class="column4 style21 null" colspan="2" style="
-                  vertical-align: middle;  text-align: center;    color: #000000;font-family: 'Cambria';font-size: 11pt; border: 1px solid #000000 !important;
-                  ">{{$finishing_m2}}</td>
-               <td class="column5 style22 null style22" colspan="2" style="
-                  vertical-align: middle;text-align: center;color: #000000;font-family: 'Cambria';font-size: 11pt; border: 1px solid #000000 !important;
-                  ">{{number_format($finishing_kg)}}</td>
-               <td class="column7 style21 null" colspan="2" style="
-                  vertical-align: middle;    color: #000000;font-family: 'Cambria';font-size: 11pt; border: 1px solid #000000 !important;
-                  ">{{$finishing}}</td>
-               <td class="column8 style22 null style22" colspan="6" style="
-                  vertical-align: middle;text-align: center;color: #000000;font-family: 'Cambria';font-size: 11pt; border: 1px solid #000000 !important;
-                  ">{{number_format($finishing_kg * $finishing)}}</td>
-               <td class="column8">&nbsp;</td>
-               <td class="column9">&nbsp;</td>
-            </tr>
-            <tr class="row41">
-               <td class="column0 style20 n">13</td>
-               <td class="column1 style16 s style16" colspan="2" style="
-                  vertical-align: middle;text-align: center;color: #000000; font-family: 'Cambria';font-size: 11pt;border: 1px solid #000000 !important;
-                  ">Tie Strut</td>
-               <td class="column4 style21 null" colspan="2" style="
-                  vertical-align: middle; text-align: center; color: #000000;font-family: 'Cambria';font-size: 11pt; border: 1px solid #000000 !important;
-                  ">{{$tie_strut_m2}}</td>
-               <td class="column5 style22 null style22" colspan="2" style="
-                  vertical-align: middle;text-align: center;color: #000000;font-family: 'Cambria';font-size: 11pt; border: 1px solid #000000 !important;
-                  ">{{number_format($tie_strut_kg)}}</td>
-               <td class="column7 style21 null" colspan="2" style="
-                  vertical-align: middle;    color: #000000;font-family: 'Cambria';font-size: 11pt; border: 1px solid #000000 !important;
-                  ">{{$tie_beam}}</td>
-               <td class="column8 style22 null style22" colspan="6" style="
-                  vertical-align: middle;text-align: center;color: #000000;font-family: 'Cambria';font-size: 11pt; border: 1px solid #000000 !important;
-                  ">{{number_format($tie_strut_kg * $tie_beam)}}</td>
-               <td class="column8">&nbsp;</td>
-               <td class="column9">&nbsp;</td>
-            </tr>
-            <tr class="row42">
-               <td class="column0">&nbsp;</td>
-               <td class="column1">&nbsp;</td>
-               <td class="column2 style23 s style23" colspan="1" style="
-                  vertical-align: middle;text-align: center;color: #000000;font-family: 'Cambria';font-size: 11pt; border: 1px solid #000000 !important;font-weight:bold;
-                  ">Total</td>
-               <td class="column4 style24 null"colspan="2" style="
-                  vertical-align: middle; text-align:center;s   color: #000000;border: 1px solid #000000 !important;font-family: 'Cambria'; font-size: 11pt;border: 1px solid #000000 !important;font-weight:bold;
-                  ">{{$total_quantity_m2}}</td>
-               <td class="column5 style25 null style25" colspan="2" style="
-                  vertical-align: middle;text-align: center;color: #000000;font-family: 'Cambria';font-size: 11pt;border: 1px solid #000000 !important;font-weight:bold;
-                  ">{{number_format($atotal_quantity_kg)}}</td>
-               <td class="column7 style24 null" colspan="2" style="
-                  vertical-align: middle;    color: #000000;border: 1px solid #000000 !important;font-family: 'Cambria'; font-size: 11pt;border: 1px solid #000000 !important;font-weight:bold;
-                  ">{{--$tie_beam + $finishing + $x_bracing + $cleat + $anchor_bolt + $cold_form_stay_brace + $sag_rod + $side_cladding_sheet + $roofing_sheet + $gable_end_girt + $side_wall_girt + $cold_form_purlin + $main_frame_steel--}}</td>
-               <td class="column8 style25 null style25" colspan="6" style="
-                  vertical-align: middle;text-align: center;color: #000000;font-family: 'Cambria';font-size: 11pt;border: 1px solid #000000 !important;font-weight:bold;
-                  ">{{number_format(($tie_strut_kg * $tie_beam) + ($finishing_kg * $finishing) + ($x_bracing_kg * $x_bracing) + ($cleat_kg * $cleat) + ($anchor_bolt_kg * $anchor_bolt) + ($stay_brace_kg * $cold_form_stay_brace) + ($sag_rod_kg * $sag_rod) + ($clading_sheet_kg * $side_cladding_sheet) + ($roofing_sheet_kg * $roofing_sheet) + ($gable_end_girt_kg * $gable_end_girt) + ($side_wall_girt_kg * $side_wall_girt) + ($top_purlin_kg * $cold_form_purlin) + ($main_frame_steel_kg*$main_frame_steel))}}</td>
-               <td class="column8">&nbsp;</td>
-               <td class="column9">&nbsp;</td>
-            </tr>
-            <tr class="row43">
-               <td class="column0">&nbsp;</td>
-               <td class="column1">&nbsp;</td>
-               <td class="column2">&nbsp;</td>
-               <td class="column4">&nbsp;</td>
-               <td class="column5">&nbsp;</td>
-               <td class="column6">&nbsp;</td>
-               <td class="column7">&nbsp;</td>
-               <td class="column8">&nbsp;</td>
-               <td class="column9">&nbsp;</td>
-               <td class="column9">&nbsp;</td>
-               <td class="column9">&nbsp;</td>
-               <td class="column9">&nbsp;</td>
-               <td class="column9">&nbsp;</td>
-               <td class="column9">&nbsp;</td>
-               <td class="column9">&nbsp;</td>
-            </tr>
-            <tr class="row44">
-               <td class="column0 style11 s style11" colspan="15" style="
-                  vertical-align: middle;text-align: center;color: #000000;font-family: 'Cambria';font-size: 11pt; border: 1px solid #000000 !important;font-weight:bold;
-                  ">CONSIDERATION FOR THE QUOTATION</td>
-               <td class="column8">&nbsp;</td>
-               <td class="column9">&nbsp;</td>
-            </tr>
-            <tr class="row45">
-               <td class="column0">&nbsp;</td>
-               <td class="column1">&nbsp;</td>
-               <td class="column2">&nbsp;</td>
-               <td class="column4">&nbsp;</td>
-               <td class="column5">&nbsp;</td>
-               <td class="column6">&nbsp;</td>
-               <td class="column7">&nbsp;</td>
-               <td class="column8">&nbsp;</td>
-               <td class="column9">&nbsp;</td>
-               <td class="column10">&nbsp;</td>
-               <td class="column11">&nbsp;</td>
-               <td class="column12">&nbsp;</td>
-               <td class="column12">&nbsp;</td>
-               <td class="column12">&nbsp;</td>
-               <td class="column12">&nbsp;</td>
-               <td class="column12">&nbsp;</td>
-            </tr>
+           
             <tr class="row46">
                <td class="column2 style26 s style26" colspan="9" style="
                   vertical-align: middle;text-align: justify;color: #000000;font-family: 'Cambria'; font-size: 11pt;

@@ -82,7 +82,7 @@ class PaymentFrontendController extends Controller
                  "customer_phone" => $user->mobile_no,
             ],
             "order_meta" => [
-                 "return_url" => 'http://127.0.0.1:8000/cashfree/payments/return/?order_id={order_id}&order_token={order_token}'
+                 "return_url" => env('API_URL').'/credit/payments/return/?order_id={order_id}&order_token={order_token}'
             ]
        ]);
       

@@ -17,7 +17,7 @@
             // Set a 400 (bad request) response code and exit.
             http_response_code(400);
             echo "Oops! There was a problem with your submission. Please complete the form and try again.";
-            exit;
+            exit;   
         }
 
         // Set the recipient email address.
@@ -34,11 +34,11 @@
         $email_content .= "Message:\n$message\n";
 
         // Build the email headers.
-        $email_headers = "From: $name <$email>";
-        echo $recipient;
-        echo $subject; 
-        echo $email_content;
-        echo $email_headers;
+        // $email_headers = "From: $name <$email>";
+        // echo $recipient;
+        // echo $subject; 
+        // echo $email_content;
+        // echo $email_headers;
         // Send the email.
         if (mail($recipient, $subject, $email_content, $email_headers)) {
             

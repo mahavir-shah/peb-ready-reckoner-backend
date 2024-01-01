@@ -8,6 +8,7 @@ use Symfony\Component\HttpFoundation\Response;
 use App\Models\User;
 use App\Models\UserPlanHistory;
 use App\Models\SubscriptionPlan;
+use App\Models\CreditHistory;
 use Auth;
 use File;
 
@@ -32,5 +33,19 @@ class PaymentController extends Controller{
             $data[$key]['amount'] = $payment->amount;
         }
         return response()->json($data, Response::HTTP_OK);
+    }
+    public function getUserDetails(Request $request){
+        $user_data = User::where('id', $request->id)->first();
+
+        if($user_data->profile_img != null){
+            $user_data['profile_img'] = env('APP_URL').'/upload/profile_img/'.$user_data->profile_img;
+        }else{
+            $user_data['profile_img'] = env('APP_URL').'/images/dummy_profile.png';
+        }
+		return response()->json([$user_data]);
+    }
+
+    public function getUserCredit(Request $request){
+        $credit = CreditHistory::where()->get();
     }
 }

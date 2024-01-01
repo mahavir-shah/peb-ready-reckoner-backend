@@ -28,6 +28,7 @@ Route::post('register', [OtpController::class, 'register']);
 Route::get('get-company-name', [OtpController::class, 'getCompanyName']);
 Route::get('get-designatione', [OtpController::class, 'getdesignation']);
 Route::get('export-estimate/{id}', [EstimateController::class, 'exportEstimate']);
+Route::get('get-user-details', [PaymentController::class, 'getUserDetails']);
 
 Route::group(['middleware' => ['jwt.verify']], function() {
     //logout

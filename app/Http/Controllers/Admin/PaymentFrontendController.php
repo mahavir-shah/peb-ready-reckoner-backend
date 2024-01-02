@@ -41,6 +41,7 @@ class PaymentFrontendController extends Controller
             $subscriptionId = 'pebr_sub_pebr_premium_'.$plan_details->amount.'_'.$id.rand(111,999);
             $planId = 'pebr_premium_'.$plan_details->amount;
        }
+       
        if($plan == 'pletinum'){
             $plan_details = SubscriptionPlan::where('plan_name',$plan)->get()->first();
             $amount = $plan_details->amount;

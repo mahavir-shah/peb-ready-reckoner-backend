@@ -20,11 +20,106 @@ use Carbon\Carbon;
 class PaymentFrontendController extends Controller
 {
     public function payment($plan,$id){
-        $user = User::where('id',$id)->get()->first();
-        $price = SubscriptionPlan::select('amount')->where('plan_name',$plan)->first()->amount;
-        $currentDateTime = Carbon::now();
-        $expirt_date = Carbon::now()->addMonths(1)->format('d/m/Y');
-        return view('payment',compact('user','plan','price','expirt_date'));
+        //echo Carbon::now()->addDays(2)->format('Y-m-d'); die();
+        $user = User::find($id);
+        
+        $headers = array(
+            "Content-Type: application/json",
+            "x-client-id: ".env('CASHFREE_API_TEST_KEY'),
+            "x-client-secret: ".env('CASHFREE_API_TEST_SECRET')
+       );
+
+       if($plan == 'basic'){
+            $plan_details = SubscriptionPlan::where('plan_name',$plan)->get()->first();
+            $amount = $plan_details->amount;
+            $subscriptionId = 'pebr_sub_pebr_basic_'.$plan_details->amount.'_'.$id.rand(111,999);
+            $planId = 'pebr_basic_'.$plan_details->amount;
+       }
+       if($plan == 'premium'){
+            $plan_details = SubscriptionPlan::where('plan_name',$plan)->get()->first();
+            $amount = $plan_details->amount;
+            $subscriptionId = 'pebr_sub_pebr_premium_'.$plan_details->amount.'_'.$id.rand(111,999);
+            $planId = 'pebr_premium_'.$plan_details->amount;
+       }
+       if($plan == 'pletinum'){
+            $plan_details = SubscriptionPlan::where('plan_name',$plan)->get()->first();
+            $amount = $plan_details->amount;
+            $subscriptionId = 'pebr_sub_pebr_pletinum_'.$plan_details->amount.'_'.$id.rand(111,999);
+            $planId = 'pebr_pletinum_'.$plan_details->amount;
+       }
+
+       $data = json_encode([
+            "subscriptionId"=> $subscriptionId,
+            "planId"=> $planId,
+            "customerName"=> $user->name,
+            "customerEmail"=> $user->email,
+            "customerPhone"=> $user->mobile_no,
+            "planDetails"=> [
+                "planName"=> ucfirst($plan),
+                "type"=> "PERIODIC",
+                "maxCycles"=> 0,
+                "recurringAmount"=> $amount,
+                "mandateAmount"=> $amount,
+                "intervalType"=> "MONTH",
+                "intervals"=> 1
+            ],
+            "firstChargeDate"=> Carbon::now()->addDays(2)->format('Y-m-d'),
+            "expiresOn"=> null,
+            "authAmount"=> $amount,
+             "returnUrl"=>'http://127.0.0.1:8000/subscription/payments/return?sid='.$subscriptionId.'&pid='.$planId.'&id='.$id,
+            "notificationChannels"=> []
+        ]);
+
+       $curl = curl_init();
+                curl_setopt_array($curl, [
+                CURLOPT_URL => "https://test.cashfree.com/api/v2/subscriptions/nonSeamless/subscription",
+                CURLOPT_RETURNTRANSFER => true,
+                CURLOPT_ENCODING => "",
+                CURLOPT_MAXREDIRS => 10,
+                CURLOPT_TIMEOUT => 30,
+                CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+                CURLOPT_CUSTOMREQUEST => "POST",
+                CURLOPT_POSTFIELDS =>$data,
+                CURLOPT_HTTPHEADER => $headers,
+                ]);
+
+                $response = curl_exec($curl);
+                $err = curl_error($curl);
+
+                curl_close($curl);
+
+                if ($err) {
+                echo "cURL Error #:" . $err;
+                } else {
+                    $data = json_decode($response,true);
+                    //echo '<pre>'; print_r($data['data']); die();
+                    $count = UserPlanDetail::where(['user_id'=> $id,'plan_name' => $plan])->count();
+                        if($count == 0 || !isset($count)){
+                            UserPlanDetail::create([
+                                'user_id' => $id,
+                                'plan_name' => $plan,
+                                'subscriptionId' => $subscriptionId,
+                                'planId' => $planId,
+                                'subReferenceId' => $data['data']['subReferenceId'],
+                                'authLink' => $data['data']['authLink'],
+                                'payment_detail' => '',
+                                'plan_expirey_date' => Carbon::now()->addMonths(1),
+                            ]);
+                        }else{
+                            UserPlanDetail::where(['user_id'=> $id,'plan_name' => $plan])->update([
+                                'user_id' => $id,
+                                'plan_name' => $plan,
+                                'subscriptionId' => $subscriptionId,
+                                'planId' => $planId,
+                                'subReferenceId' => $data['data']['subReferenceId'],
+                                'authLink' => $data['data']['authLink'], 
+                                'payment_detail' =>'',
+                                'plan_expirey_date' => Carbon::now()->addMonths(1),
+                            ]);
+                        }
+
+                    return redirect()->to($data['data']['authLink']);
+                }
     }
 
     public function paymentProcess(Request $request) {
@@ -60,6 +155,65 @@ class PaymentFrontendController extends Controller
         // return redirect('http://localhost:5173/');
     }
 
+    public function subscriptionReturnUrl(Request $request){
+        dd($request->all()); die();
+        UserPlanDetail::where(['subscriptionId' => $request->subscriptionId ,'planId' => $request->planId,'user_id' => $request->id])->update([
+            'plan_status' => 1
+        ]);
+        $UserPlanDetail = UserPlanDetail::where(['subscriptionId' => $request->subscriptionId ,'planId' => $request->planId,'user_id' => $request->id])->first();
+
+        $headers = array(
+            "Content-Type: application/json",
+            "x-client-id: ".env('CASHFREE_API_TEST_KEY'),
+            "x-client-secret: ".env('CASHFREE_API_TEST_SECRET')
+       );
+        $curl = curl_init();
+
+        curl_setopt_array($curl, array(
+        CURLOPT_URL => 'https://test.cashfree.com/api/v2/subscriptions/'.$UserPlanDetail->subReferenceId,
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_ENCODING => '',
+        CURLOPT_MAXREDIRS => 10,
+        CURLOPT_TIMEOUT => 0,
+        CURLOPT_FOLLOWLOCATION => true,
+        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+        CURLOPT_CUSTOMREQUEST => 'GET',
+        CURLOPT_HTTPHEADER => $headers
+        ));
+
+        $response = curl_exec($curl);
+
+        curl_close($curl);
+        $data = json_decode($response,true);
+        if($data['subscription']['status'] == 'ACTIVE'){
+            // UserPlanHistory::create([
+            //     'user_id' => $request->user_id,
+            //     'plan_name' => $request->plan_name,
+            //     'subscriptionId' => $request->subscriptionId,
+            //     'planId' => $request->planId,
+            //     'subReferenceId' => $UserPlanDetail->subReferenceId,
+            //     'authLink' => $UserPlanDetail->authLink,
+            //     'payment_detail' => '',
+            //     'plan_expirey_date' => Carbon::now()->addMonths(1),
+            // ]);
+            // User::where('id',$request->user_id)->update([
+            //     'selected_plan' => $request->plan_name,
+            //     'plan_status' => 1
+            // ]);
+            return redirect()->route('afterSubscriptionSuccess');
+        }else{
+            return redirect()->route('afterSubscriptionCancel',$UserPlanDetail->authLink);
+        }   
+    }
+
+    public function afterSubscriptionSuccess(){
+        return view('admin.payment.subscription.sucess');
+    }
+
+    public function afterSubscriptionCancel($url){
+        return view('admin.payment.subscription.cancel',compact('url'));
+    }
+
     public function addCredit($amount,$id) {
         $user = User::find($id);
         
@@ -82,7 +236,7 @@ class PaymentFrontendController extends Controller
                  "customer_phone" => $user->mobile_no,
             ],
             "order_meta" => [
-                 "return_url" => env('API_URL').'/credit/payments/return/?order_id={order_id}&order_token={order_token}'
+                 "return_url" => env('APP_URL').'/credit/payments/return/?order_id={order_id}&order_token={order_token}'
             ]
        ]);
       

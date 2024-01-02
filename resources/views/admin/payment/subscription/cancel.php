@@ -1,0 +1,1 @@
+<a href="{{$url}}"><button>Try Again</button></a>

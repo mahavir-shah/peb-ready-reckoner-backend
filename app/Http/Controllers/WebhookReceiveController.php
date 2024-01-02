@@ -25,4 +25,10 @@ class WebhookReceiveController extends Controller
 		echo json_encode($data);
 		exit();
 	}
+
+	public function cashfreeData(Request $request){
+		$data = $request->all();
+		echo json_encode($data);
+		exit();
+	}
 }

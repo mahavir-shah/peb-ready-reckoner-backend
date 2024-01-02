@@ -9,7 +9,11 @@
   @import url('https://fonts.googleapis.com/css2?family=Fasthand&family=Itim&family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
 </style> -->
       <style type="text/css">
-         html { font-family:Calibri, Arial, Helvetica, sans-serif; font-size:11pt; background-color:white }
+         @font-face {
+            font-family: 'Itim';
+            src: url('{{ public_path("Itim-Regular.tff") }}') format('truetype');
+         }
+         html { font-family:Itim variant0; font-size:11pt; background-color:white }
          a.comment-indicator:hover + div.comment { background:#ffd; position:absolute; display:block; border:1px solid black; padding:0.5em }
          a.comment-indicator { background:red; display:inline-block; border:1px solid black; width:0.5em; height:0.5em }
          /* div.comment { display:none } */
@@ -89,7 +93,7 @@
       </style>
    </head>
    <body style="
-      margin: 0; font-family: 'examplefont';
+      margin: 0; font-family: 'Itim';
       ">
        <header style="background-color: #206CA5;padding-top: 25px;padding-bottom: 25px;">
             <div style="display: inline-block;width: 100%;text-align: center;background-color: #206CA5;">

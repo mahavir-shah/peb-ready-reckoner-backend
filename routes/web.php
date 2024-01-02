@@ -30,6 +30,10 @@ use App\Http\Controllers\PdfController;
 Route::get('/', [LoginController::class, 'LoginForm'])->name('login');
 Route::get('/payment/{plan}/{id}', [PaymentFrontendController::class, 'payment'])->name('paymentDetails');
 Route::post('/payment-process', [PaymentFrontendController::class, 'paymentProcess'])->name('paymentProcess');
+Route::any('subscription/payments/return', [PaymentFrontendController::class, 'subscriptionReturnUrl'])->name('subscriptionReturnUrl');
+Route::get('/subscription/payment/success', [PaymentFrontendController::class, 'afterSubscriptionSuccess'])->name('afterSubscriptionSuccess');
+Route::get('/subscription/payment/cancel/{auth_id}', [PaymentFrontendController::class, 'afterSubscriptionCancel'])->name('afterSubscriptionCancel');
+
 Route::post('/login-process', [LoginController::class, 'login'])->name('loginProcess');
 Route::get('/add-credit/{aamount}/{id}', [PaymentFrontendController::class, 'addCredit'])->name('addCredit');
 Route::any('credit/payments/return', [PaymentFrontendController::class, 'returnUrl'])->name('returnUrl');
@@ -79,6 +83,7 @@ Route::group(['middleware' =>['auth']], function () {
 // Webhook testing
 Route::get('/purchaseReceive',[WebhookReceiveController::class, 'purchaseReceive']);
 Route::get('/ReceiveToken',[WebhookReceiveController::class, 'tokenReceive']);
+Route::any('/cashfree/webhook',[WebhookReceiveController::class, 'cashfreeData']);
 
 // Pdf dowmload
 // Route::get('/export_pdf',[LoginController::class,'export_pdf'])->name('export_pdf');

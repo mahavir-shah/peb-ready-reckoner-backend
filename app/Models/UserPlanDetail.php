@@ -14,7 +14,7 @@ class UserPlanDetail extends Model{
      *
      * @return response()
      */
-    protected $fillable = ['user_id', 'plan_name', 'payment_detail', 'plan_expirey_date'];
+    protected $fillable = ['user_id', 'plan_name', 'subscriptionId','planId','subReferenceId','authLink','plan_status','payment_detail', 'plan_expirey_date'];
 
     protected $table = 'user_plan_detail';
 }

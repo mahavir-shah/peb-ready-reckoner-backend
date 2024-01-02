@@ -22,7 +22,8 @@ use App\Http\Controllers\PdfController;
 |
 */
 
-
+// echo "<pre>";
+// print_r($_REQUEST);
 
 // Route::get('/home/{id}', [App\Http\Controllers\HomeController::class, 'detailPage'])->name('detailPage');
 // Route::get('fill-data-pdf', [PDFController::class,'index']);

@@ -66,7 +66,7 @@ class PaymentFrontendController extends Controller
             "firstChargeDate"=> Carbon::now()->addDays(2)->format('Y-m-d'),
             "expiresOn"=> null,
             "authAmount"=> $amount,
-             "returnUrl"=>'http://127.0.0.1:8000/subscription/payments/return?sid='.$subscriptionId.'&pid='.$planId.'&id='.$id,
+             "returnUrl"=>env('APP_URL').'/subscription/payments/return?sid='.$subscriptionId.'&pid='.$planId.'&id='.$id,
             "notificationChannels"=> []
         ]);
 

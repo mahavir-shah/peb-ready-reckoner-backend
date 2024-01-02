@@ -66,7 +66,8 @@ class PaymentFrontendController extends Controller
             "firstChargeDate"=> Carbon::now()->addDays(2)->format('Y-m-d'),
             "expiresOn"=> null,
             "authAmount"=> $amount,
-             "returnUrl"=>env('APP_URL').'/subscription/payments/return?sid='.$subscriptionId.'&pid='.$planId.'&id='.$id,
+            "returnUrl"=>env('API_URL').'/subscription/payments/return/?sid='.$subscriptionId.'&pid='.$planId.'&id='.$id,
+            // "returnUrl"=>env('API_URL').'/subscription/payments/return/',
             "notificationChannels"=> []
         ]);
 
@@ -156,12 +157,11 @@ class PaymentFrontendController extends Controller
     }
 
     public function subscriptionReturnUrl(Request $request){
-        dd($request->all()); die();
         UserPlanDetail::where(['subscriptionId' => $request->subscriptionId ,'planId' => $request->planId,'user_id' => $request->id])->update([
             'plan_status' => 1
         ]);
-        $UserPlanDetail = UserPlanDetail::where(['subscriptionId' => $request->subscriptionId ,'planId' => $request->planId,'user_id' => $request->id])->first();
-
+        $UserPlanDetail = UserPlanDetail::where(['subscriptionId' => $request->sid ,'planId' => $request->pid,'user_id' => $request->id])->get()->first();
+        //echo '<pre>'; print_r($request->all()); die();
         $headers = array(
             "Content-Type: application/json",
             "x-client-id: ".env('CASHFREE_API_TEST_KEY'),
@@ -236,7 +236,7 @@ class PaymentFrontendController extends Controller
                  "customer_phone" => $user->mobile_no,
             ],
             "order_meta" => [
-                 "return_url" => env('APP_URL').'/credit/payments/return/?order_id={order_id}&order_token={order_token}'
+                 "return_url" => env('API_URL').'/credit/payments/return/?order_id={order_id}&order_token={order_token}'
             ]
        ]);
       
@@ -255,7 +255,6 @@ class PaymentFrontendController extends Controller
        return redirect()->to(json_decode($resp)->payment_link);
     }
     public function returnUrl(Request $request){
-        //dd($request->all());
         $headers = array(
             "Content-Type: application/json",
             "x-api-version: 2022-01-01",
